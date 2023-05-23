@@ -18,7 +18,7 @@ public abstract class Productores extends Thread{
     Semaphore semProduccion; 
     Semaphore semSalario;
        
-    public Productores(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario ) {
+    public Productores(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario ) {
         
         this.tProduccion = (float)1/this.pDia*1000;
         this.pDia = pDia;

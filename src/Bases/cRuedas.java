@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
 public class cRuedas extends Productores {
     
     public cRuedas(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
-        super(tProduccion, pDia, salario, mutex, semProduccion, semSalario);
+        super(pDia, salario, mutex, semProduccion, semSalario);
     }
     
 }

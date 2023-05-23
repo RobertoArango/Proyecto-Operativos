@@ -13,7 +13,7 @@ import java.util.concurrent.Semaphore;
 public class cMotor extends Productores {
     
     public cMotor(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
-        super(tProduccion, pDia, salario, mutex, semProduccion, semSalario);
+        super(pDia, salario, mutex, semProduccion, semSalario);
     }
     
 }
