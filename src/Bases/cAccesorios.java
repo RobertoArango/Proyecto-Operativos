@@ -4,10 +4,16 @@
  */
 package Bases;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author Vito
  */
-public class cAccesorios {
+public class cAccesorios extends Productores {
+    
+    public cAccesorios(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
+        super(tProduccion, pDia, salario, mutex, semProduccion, semSalario);
+    }
     
 }
