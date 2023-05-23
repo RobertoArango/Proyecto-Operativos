@@ -8,6 +8,6 @@ package Bases;
  *
  * @author Vito
  */
-public class Bases {
+public class cMotor {
     
 }
