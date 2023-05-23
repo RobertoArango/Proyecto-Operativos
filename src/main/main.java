@@ -30,6 +30,7 @@ public class main {
     public static volatile float ruedas;
     public static volatile float accesorios;
     public static volatile float cantChasis;
+    public static volatile float cantCarrocerias;
     public static volatile float cantMotores;
     public static volatile float cantRuedas;
     public static volatile float cantAccesorios;
@@ -39,6 +40,16 @@ public class main {
     //semaforos
     
     public static Semaphore mutexChasis;
+    public static Semaphore mutexCarrocerias;
+    public static Semaphore mutexMotores;
+    public static Semaphore mutexRuedas;
+    public static Semaphore mutexAccesorios;
+    
+    public static Semaphore semProdChasis;
+    public static Semaphore semProdCarroceria;
+    public static Semaphore semProdMotores;
+    public static Semaphore semProdRuedas;
+    public static Semaphore semProdAccesorios;
     
 
     /**
