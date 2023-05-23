@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author rober
@@ -20,20 +22,23 @@ public class main {
     public static volatile boolean tGerente = true;
     public static volatile boolean tDirector = true;
     
-     
+     //cantidad producida por dia
     public static volatile int carnet;
-    public static volatile int chasis;
-    public static volatile int carrocerias;
-    public static volatile int motores;
-    public static volatile int ruedas;
-    public static volatile int accesorios;
-    public static volatile int cantChasis;
-    public static volatile int cantMotores;
-    public static volatile int cantRuedas;
-    public static volatile int cantAccesorios;
+    public static volatile float chasis;
+    public static volatile float carrocerias;
+    public static volatile float motores;
+    public static volatile float ruedas;
+    public static volatile float accesorios;
+    public static volatile float cantChasis;
+    public static volatile float cantMotores;
+    public static volatile float cantRuedas;
+    public static volatile float cantAccesorios;
     public static volatile float precio;
-    public static volatile int maximoProducto;
+    public static volatile float maximoProducto;
     
+    //semaforos
+    
+    public static Semaphore mutexChasis;
     
 
     /**
