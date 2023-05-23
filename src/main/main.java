@@ -5,6 +5,11 @@
  */
 package main;
 
+import Bases.cAccesorios;
+import Bases.cCarroceria;
+import Bases.cChasis;
+import Bases.cMotor;
+import Bases.cRuedas;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -50,6 +55,29 @@ public class main {
     public static Semaphore semProdMotores;
     public static Semaphore semProdRuedas;
     public static Semaphore semProdAccesorios;
+    
+    public static Semaphore semSalChasis;
+    public static Semaphore semSalCarroceria;
+    public static Semaphore semSalMotores;
+    public static Semaphore semSalRuedas;
+    public static Semaphore semSalAccesorios;
+    
+    //cantidad de productores en los sectores
+    
+    public static volatile int cantProdChasis;
+    public static volatile int cantProdCarroceria;
+    public static volatile int cantProdMotores;
+    public static volatile int cantProdRuedas;
+    public static volatile int cantProdAccesorios;
+    
+    //cantidad de productores trabajando
+    
+    public static volatile cChasis tProdChasis[];
+    public static volatile cCarroceria tProdCarroceria[];
+    public static volatile cMotor tProdMotor[];
+    public static volatile cRuedas tProdRuedas[];
+    public static volatile cAccesorios tProdAccesorios[];
+    
     
 
     /**
