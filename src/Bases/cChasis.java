@@ -15,7 +15,7 @@ import main.main;
  */
 public class cChasis extends Productores {
     
-    public cChasis(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
+    public cChasis(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
         super(pDia, salario, mutex, semProduccion, semSalario);
     }
     

@@ -12,7 +12,7 @@ import java.util.concurrent.Semaphore;
  */
 public class cAccesorios extends Productores {
     
-    public cAccesorios(float tProduccion, float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
+    public cAccesorios(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
         super(pDia, salario, mutex, semProduccion, semSalario);
     }
     
