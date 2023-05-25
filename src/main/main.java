@@ -95,13 +95,16 @@ public class main {
      */
     public static void main(String[] args) {
         
-        //parametros por marca
-        
-        
+        //valores por chasis
         
         chasis = 1; //lo que se produce por dia
         cantChasis = 2; //lo que se requiere para fabricar un carro
-        
+        cantProdChasis = 2;
+        tProdChasis = new cChasis[2]; //productores en el sector chasis pasado como parametro a la clase
+        semSalChasis = new Semaphore(1);
+        semProdChasis = new Semaphore(25);//semaforo para el limite maximo de chasis en almacen
+        mutexChasis = new Semaphore(1);
+         
         // TODO code application logic here
         
         for (int i = 0; i < cantProdChasis; i++) {
