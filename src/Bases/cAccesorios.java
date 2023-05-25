@@ -5,6 +5,8 @@
 package Bases;
 
 import java.util.concurrent.Semaphore;
+import javax.swing.JOptionPane;
+import main.main;
 
 /**
  *
@@ -16,4 +18,27 @@ public class cAccesorios extends Productores {
         super(pDia, salario, mutex, semProduccion, semSalario);
     }
     
+    @Override
+    public void run() {
+        try {
+            while (this.semProduccion.availablePermits() == 0) {
+                Thread.sleep((long) (1* 1000 / 24));
+                this.semSalario.acquire();
+                salario += 17;
+                this.semSalario.release();
+            }
+            Thread.sleep((long) this.tProduccion);
+            this.semProduccion.acquire();
+            this.mutex.acquire();
+            this.semSalario.acquire();
+            salario += ((tProduccion/1000)*17);
+            main.aAccesorios++;
+            //System.out.println("Accesorios:" + main.aAccesorios);
+            this.mutex.release();
+            this.semSalario.release();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+        }
+   }
 }
