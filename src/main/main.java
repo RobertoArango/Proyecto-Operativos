@@ -97,13 +97,53 @@ public class main {
         
         //valores por chasis
         
-        chasis = 1; //lo que se produce por dia
-        cantChasis = 2; //lo que se requiere para fabricar un carro
+        chasis = (float)0.25; //lo que se produce por dia
+        cantChasis = 3; //lo que se requiere para fabricar un carro
         cantProdChasis = 2;
         tProdChasis = new cChasis[2]; //productores en el sector chasis pasado como parametro a la clase
         semSalChasis = new Semaphore(1);
         semProdChasis = new Semaphore(25);//semaforo para el limite maximo de chasis en almacen
         mutexChasis = new Semaphore(1);
+        
+        //valores por carroceria
+        
+        carrocerias = (float)0.25; //lo que se produce por dia
+        cantCarrocerias = 2; //lo que se requiere para fabricar un carro
+        cantProdCarroceria = 2;
+        tProdCarroceria = new cCarroceria[2]; //productores en el sector chasis pasado como parametro a la clase
+        semSalCarroceria = new Semaphore(1);
+        semProdCarroceria = new Semaphore(25); //semaforo para el limite maximo de chasis en almacen
+        mutexCarrocerias = new Semaphore (1);
+        
+        //valores por motores
+        
+        motores = 1;
+        cantMotores = 4;
+        cantProdMotores = 2;
+        tProdMotor = new cMotor[2];
+        semSalMotores = new Semaphore(1);
+        semProdMotores = new Semaphore(25);
+        mutexMotores = new Semaphore (1);
+        
+        //valores por ruedas
+        
+        ruedas = 5;
+        cantRuedas = 6;
+        cantProdRuedas = 2;
+        tProdRuedas = new cRuedas[2];
+        semSalRuedas = new Semaphore(1);
+        semProdRuedas = new Semaphore(25);
+        mutexRuedas = new Semaphore (1);
+        
+        //valores por accesorios
+        
+        accesorios = (float)0.5;
+        cantAccesorios = 5;
+        cantProdAccesorios = 2;
+        tProdAccesorios = new cAccesorios[2];
+        semSalAccesorios = new Semaphore(1);
+        semProdAccesorios = new Semaphore (25);
+        mutexAccesorios = new Semaphore (1);
          
         // TODO code application logic here
         
@@ -111,6 +151,27 @@ public class main {
             tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis);
             tProdChasis[i].start();
         }  
+        
+        for (int i = 0; i < cantProdCarroceria; i++) {
+            tProdCarroceria[i] = new cCarroceria(carrocerias, salCarroceria, mutexCarrocerias, semProdCarroceria, semSalCarroceria);
+            tProdCarroceria[i].start();
+        }
+        
+        for (int i = 0; i < cantProdMotores; i++) {
+            tProdMotor[i] = new cMotor(motores, salMotores, mutexMotores, semProdMotores, semSalMotores);
+            tProdMotor[i].start();
+        }
+        
+        for (int i = 0; i < cantProdRuedas; i++) {
+            tProdRuedas[i] = new cRuedas(ruedas, salRuedas, mutexRuedas, semProdRuedas, semSalRuedas);
+            tProdRuedas[i].start();
+        }
+        
+        for (int i = 0; i < cantProdAccesorios; i++) {
+            tProdAccesorios[i] = new cAccesorios(accesorios, salAccesorios, mutexAccesorios, semProdAccesorios, semSalAccesorios);
+            tProdAccesorios[i].start();
+        }
+       
     }
     
 }
