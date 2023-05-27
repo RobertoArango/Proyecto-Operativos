@@ -107,7 +107,7 @@ public class Ensamblador extends Thread {
             this.mutexRuedas.acquire();
             this.mutexCarros.acquire();
             
-            Main.semSalEnsanmblador.acquire();
+            main.semSalEnsamblador.acquire();
             
             main.carrosTotal++;
             main.aChasis = main.aChasis - (int) main.cantChasis;
@@ -117,7 +117,7 @@ public class Ensamblador extends Thread {
 
             main.salEnsamblador += ((this.tEnsam / 1000 * 24) * 6);
 
-            main.semSalEnsanmblador.release();
+            main.semSalEnsamblador.release();
             
             this.mutexChasis.release();
             this.mutexCarrocerias.release();
@@ -131,7 +131,7 @@ public class Ensamblador extends Thread {
             this.semProdRuedas.release((int) main.cantRuedas);
             
         } catch (InterruptedException e) {
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error en la ejecución del Ass-embler.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
     }

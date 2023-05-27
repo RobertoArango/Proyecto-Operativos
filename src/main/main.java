@@ -5,6 +5,7 @@
  */
 package main;
 
+import Bases.Ensamblador;
 import Bases.cAccesorios;
 import Bases.cCarroceria;
 import Bases.cChasis;
@@ -161,27 +162,27 @@ public class main {
         // TODO code application logic here
         
         for (int i = 0; i < cantProdChasis; i++) {
-            tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis);
+            tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis, semEnsamChasis );
             tProdChasis[i].start();
         }  
         
         for (int i = 0; i < cantProdCarroceria; i++) {
-            tProdCarroceria[i] = new cCarroceria(carrocerias, salCarroceria, mutexCarrocerias, semProdCarroceria, semSalCarroceria);
+            tProdCarroceria[i] = new cCarroceria(carrocerias, salCarroceria, mutexCarrocerias, semProdCarroceria, semSalCarroceria, semEnsamCarroceria);
             tProdCarroceria[i].start();
         }
         
         for (int i = 0; i < cantProdMotores; i++) {
-            tProdMotor[i] = new cMotor(motores, salMotores, mutexMotores, semProdMotores, semSalMotores);
+            tProdMotor[i] = new cMotor(motores, salMotores, mutexMotores, semProdMotores, semSalMotores, semEnsamMotores);
             tProdMotor[i].start();
         }
         
         for (int i = 0; i < cantProdRuedas; i++) {
-            tProdRuedas[i] = new cRuedas(ruedas, salRuedas, mutexRuedas, semProdRuedas, semSalRuedas);
+            tProdRuedas[i] = new cRuedas(ruedas, salRuedas, mutexRuedas, semProdRuedas, semSalRuedas, semEnsamRuedas);
             tProdRuedas[i].start();
         }
         
         for (int i = 0; i < cantProdAccesorios; i++) {
-            tProdAccesorios[i] = new cAccesorios(accesorios, salAccesorios, mutexAccesorios, semProdAccesorios, semSalAccesorios);
+            tProdAccesorios[i] = new cAccesorios(accesorios, salAccesorios, mutexAccesorios, semProdAccesorios, semSalAccesorios, semEnsamAccesorios);
             tProdAccesorios[i].start();
         }
         
