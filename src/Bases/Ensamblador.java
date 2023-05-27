@@ -94,7 +94,9 @@ public class Ensamblador extends Thread {
                         && ((int) main.cantMotores >= this.semEnsamMotores.availablePermits())
                         && ((int) main.cantRuedas >= this.semEnsamRuedas.availablePermits()));
             }
-            System.out.println("armando");
+            
+            //Se revisa que se tenga la cantidad necesaria de piezas para el ensamblador
+            
             Thread.sleep((long) this.tEnsam);
             this.semEnsamChasis.acquire((int) main.cantChasis); 
             this.semEnsamCarrocerias.acquire((int) main.cantCarrocerias);
@@ -109,7 +111,10 @@ public class Ensamblador extends Thread {
             
             main.semSalEnsamblador.acquire();
             
-            main.carrosTotal++;
+            main.carrosTotal++; // se suma el carro que salga de ensamblador 
+            
+            //Se restan las piezas del almacen que fueron utilizadas en el ensamblador
+            
             main.aChasis = main.aChasis - (int) main.cantChasis;
             main.aCarrocerias = main.aCarrocerias - (int) main.cantCarrocerias;
             main.aMotores = main.aMotores - (int) main.cantMotores;
