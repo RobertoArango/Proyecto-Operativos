@@ -15,8 +15,8 @@ import main.main;
  */
 public class cChasis extends Productores {
     
-    public cChasis(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
-        super(pDia, salario, mutex, semProduccion, semSalario);
+    public cChasis(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
+        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
     }
     
     @Override
@@ -37,6 +37,7 @@ public class cChasis extends Productores {
             //System.out.println("Chasis:" + main.aChasis);
             this.mutex.release();
             this.semSalario.release();
+            this.semEnsam.release();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.exit(1);

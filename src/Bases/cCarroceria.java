@@ -14,8 +14,8 @@ import main.main;
  */
 public class cCarroceria extends Productores {
     
-    public cCarroceria(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario) {
-        super(pDia, salario, mutex, semProduccion, semSalario);
+    public cCarroceria(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
+        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
     }
     
     @Override
@@ -36,6 +36,7 @@ public class cCarroceria extends Productores {
             //System.out.println("Carrocerias:" + main.aCarrocerias);
             this.mutex.release();
             this.semSalario.release();
+            this.semEnsam.release();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
