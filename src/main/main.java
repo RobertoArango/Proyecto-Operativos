@@ -26,6 +26,8 @@ public class main {
     public static volatile int aAccesorios = 1;
     public static volatile boolean tGerente = true;
     public static volatile boolean tDirector = true;
+    public static volatile int carros = 0;
+    public static volatile int carrosTotal = 0;
     
     //cantidad producida por dia
     public static volatile int carnet;
@@ -35,7 +37,7 @@ public class main {
     public static volatile float ruedas;
     public static volatile float accesorios;
     
-    //cantidad de piesas para fabircar el carro
+    //cantidad de piezas necesarias para fabircar el carro 
     public static volatile float cantChasis;
     public static volatile float cantCarrocerias;
     public static volatile float cantMotores;
@@ -51,6 +53,7 @@ public class main {
     public static Semaphore mutexMotores;
     public static Semaphore mutexRuedas;
     public static Semaphore mutexAccesorios;
+    public static Semaphore mutexCarros;
     
     public static Semaphore semProdChasis;
     public static Semaphore semProdCarroceria;
@@ -58,11 +61,18 @@ public class main {
     public static Semaphore semProdRuedas;
     public static Semaphore semProdAccesorios;
     
+    public static Semaphore semEnsamChasis;
+    public static Semaphore semEnsamCarroceria;
+    public static Semaphore semEnsamMotores;
+    public static Semaphore semEnsamRuedas;
+    public static Semaphore semEnsamAccesorios;
+    
     public static Semaphore semSalChasis;
     public static Semaphore semSalCarroceria;
     public static Semaphore semSalMotores;
     public static Semaphore semSalRuedas;
     public static Semaphore semSalAccesorios;
+    public static Semaphore semSalEnsamblador;
     
     //cantidad de productores en los sectores
     
@@ -71,6 +81,7 @@ public class main {
     public static volatile int cantProdMotores;
     public static volatile int cantProdRuedas;
     public static volatile int cantProdAccesorios;
+    public static volatile int cantProdEnsamblador;
     
     //cantidad de productores trabajando
     
@@ -79,6 +90,7 @@ public class main {
     public static volatile cMotor tProdMotor[];
     public static volatile cRuedas tProdRuedas[];
     public static volatile cAccesorios tProdAccesorios[];
+    public static volatile Ensamblador tProdEnsamblador[];
     
     //variables salarios trabajadores
     
@@ -87,6 +99,7 @@ public class main {
     public static volatile float salMotores = 0;
     public static volatile float salRuedas = 0;
     public static volatile float salAccesorios = 0;
+    public static volatile float salEnsamblador = 0;
     public static volatile float salGerente = 0;
     public static volatile float salDirector = 0;
  
@@ -112,7 +125,7 @@ public class main {
         cantProdCarroceria = 2;
         tProdCarroceria = new cCarroceria[2]; //productores en el sector chasis pasado como parametro a la clase
         semSalCarroceria = new Semaphore(1);
-        semProdCarroceria = new Semaphore(25); //semaforo para el limite maximo de chasis en almacen
+        semProdCarroceria = new Semaphore(20); //semaforo para el limite maximo de chasis en almacen
         mutexCarrocerias = new Semaphore (1);
         
         //valores por motores
@@ -122,7 +135,7 @@ public class main {
         cantProdMotores = 2;
         tProdMotor = new cMotor[2];
         semSalMotores = new Semaphore(1);
-        semProdMotores = new Semaphore(25);
+        semProdMotores = new Semaphore(55);
         mutexMotores = new Semaphore (1);
         
         //valores por ruedas
@@ -132,7 +145,7 @@ public class main {
         cantProdRuedas = 2;
         tProdRuedas = new cRuedas[2];
         semSalRuedas = new Semaphore(1);
-        semProdRuedas = new Semaphore(25);
+        semProdRuedas = new Semaphore(35);
         mutexRuedas = new Semaphore (1);
         
         //valores por accesorios
@@ -142,7 +155,7 @@ public class main {
         cantProdAccesorios = 2;
         tProdAccesorios = new cAccesorios[2];
         semSalAccesorios = new Semaphore(1);
-        semProdAccesorios = new Semaphore (25);
+        semProdAccesorios = new Semaphore (10);
         mutexAccesorios = new Semaphore (1);
          
         // TODO code application logic here
@@ -170,6 +183,13 @@ public class main {
         for (int i = 0; i < cantProdAccesorios; i++) {
             tProdAccesorios[i] = new cAccesorios(accesorios, salAccesorios, mutexAccesorios, semProdAccesorios, semSalAccesorios);
             tProdAccesorios[i].start();
+        }
+        
+        for (int i = 0; i < cantProdEnsamblador; i++) {
+            tProdEnsamblador[i] = new Ensamblador(mutexChasis, mutexCarrocerias, mutexMotores, mutexRuedas, mutexAccesorios, mutexCarros,
+                    semEnsamChasis, semEnsamCarroceria, semEnsamMotores, semEnsamRuedas, semEnsamAccesorios,
+                    semProdChasis, semProdCarroceria, semProdMotores, semProdRuedas, semProdAccesorios);
+            tProdEnsamblador[i].start();
         }
        
     }
