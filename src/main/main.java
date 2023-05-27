@@ -109,6 +109,10 @@ public class main {
      */
     public static void main(String[] args) {
         
+        //valores para carros fabricados
+        
+        mutexCarros = new Semaphore (1);
+        
         //valores por chasis
         
         chasis = (float)0.25; //lo que se produce por dia
