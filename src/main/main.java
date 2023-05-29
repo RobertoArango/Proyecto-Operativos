@@ -12,12 +12,17 @@ import Bases.cChasis;
 import Bases.cMotor;
 import Bases.cRuedas;
 import java.util.concurrent.Semaphore;
+import Bases.lectorTXT;
 
 /**
  *
  * @author rober
  */
 public class main {
+    
+    //variable para datos iniciales de la simulacion 
+    public static int[] Datos;
+    
     //los valores lo colocamos temporalmente como placeholder
     //la "a" indica que estan en almacen 
     public static volatile int aChasis = 1; 
@@ -108,6 +113,11 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        //se crea la cantidad de datos que existiran en el txt - se llama a la funcion para crear el txt (prueba)
+        
+        Datos = new int[25];
+        lectorTXT.escribir();
         
         //valores para carros fabricados
         
