@@ -32,7 +32,7 @@ public class lectorTXT {
     
     public static void leer() {
         
-        String paquete = "test\\Data.txt";
+        String paquete = "test\\Datos.txt";
         String s;
         File archivo = new File(paquete);
         
@@ -60,7 +60,6 @@ public class lectorTXT {
     public static void escribir() {
         try {
             String nuevosDatos = "Conversion dias/seg:\n" + Integer.toString(main.Datos[0])
-                    
                     + "\nDia de entrega de vehiculos RR:\n" + Integer.toString(main.Datos[1])
                     + "\nCapacidad max en almacen RR - Chasis:\n" + Integer.toString(main.Datos[2])
                     + "\nCapacidad max en almacen RR - Carrocerias:\n" + Integer.toString(main.Datos[3])
@@ -73,7 +72,6 @@ public class lectorTXT {
                     + "\nProductores RR - Ruedas:\n" + Integer.toString(main.Datos[10])
                     + "\nProductores RR - Accesorios:\n" + Integer.toString(main.Datos[11])
                     + "\nEnsambladores RR:\n" + Integer.toString(main.Datos[12])
-                    
                     + "\nDia de entrega de vehiculos Mase:\n" + Integer.toString(main.Datos[13])
                     + "\nCapacidad max en almacen Mase - Chasis:\n" + Integer.toString(main.Datos[14])
                     + "\nCapacidad max en almacen Mase - Carrocerias:\n" + Integer.toString(main.Datos[15])

@@ -26,7 +26,7 @@ Ensambladores RR:
 1
 Dia de entrega de vehiculos Mase:
 5
-Capacidad max en almacen Mase - Chasis - :
+Capacidad max en almacen Mase - Chasis:
 25
 Capacidad max en almacen Mase - Carrocerias:
 20
