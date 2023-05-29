@@ -1,0 +1,50 @@
+Conversion dias/seg:
+1
+Dia de entrega de vehiculos RR:
+5
+Capacidad max en almacen RR - Chasis:
+25
+Capacidad max en almacen RR - Carrocerias:
+20
+Capacidad max en almacen RR - Motores:
+55
+Capacidad max en almacen RR - Ruedas:
+35
+Capacidad max en almacen RR - Accesorios:
+10
+Productores RR - Chasis:
+1
+Productores RR - Carrocerias:
+1
+Productores RR - Motores:
+1
+Productores RR - Ruedas:
+1
+Productores RR - Accesorios:
+1
+Ensambladores RR:
+1
+Dia de entrega de vehiculos Mase:
+5
+Capacidad max en almacen Mase - Chasis - :
+25
+Capacidad max en almacen Mase - Carrocerias:
+20
+Capacidad max en almacen Mase - Motores:
+55
+Capacidad max en almacen Mase - Ruedas:
+35
+Capacidad max en almacen Mase - Accesorios:
+10
+Productores Mase - Chasis:
+1
+Productores Mase - Carrocerias:
+1
+Productores Mase - Motores:
+1
+Productores Mase - Ruedas:
+1
+Productores Mase - Accesorios:
+1
+Ensambladores Mase:
+1

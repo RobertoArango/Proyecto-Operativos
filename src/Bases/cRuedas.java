@@ -22,7 +22,7 @@ public class cRuedas extends Productores {
     public void run() {
         try {
             while (this.semProduccion.availablePermits() == 0) {
-                Thread.sleep((long) (1* 1000 / 24));
+                Thread.sleep((long) (main.Datos[0]* 1000 / 24));
                 this.semSalario.acquire();
                 salario += 8;
                 this.semSalario.release();
@@ -33,7 +33,6 @@ public class cRuedas extends Productores {
             this.semSalario.acquire();
             salario += ((tProduccion/1000)*8);
             main.aRuedas++;
-            //System.out.println("Ruedas:" + main.aRuedas);
             this.mutex.release();
             this.semSalario.release();
             this.semEnsam.release();

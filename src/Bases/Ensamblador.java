@@ -53,7 +53,7 @@ public class Ensamblador extends Thread {
             Semaphore semProdRuedas,
             Semaphore semProdAccesorios) 
     {
-        this.tEnsam = (float) 1 * 1000 * 2;
+        this.tEnsam = (float) main.Datos[0] * 1000 * 2;
         this.mutexChasis = mutexCarrocerias;
         this.mutexCarrocerias = mutexCarrocerias;
         this.mutexMotores = mutexMotores;
@@ -84,7 +84,7 @@ public class Ensamblador extends Thread {
                     && ((int) main.cantMotores > this.semEnsamMotores.availablePermits())
                     && ((int) main.cantRuedas > this.semEnsamRuedas.availablePermits()))) {
                 
-                Thread.sleep((long) (1 * 1000 / 24));
+                Thread.sleep((long) (main.Datos[0] * 1000 / 24));
                 main.semSalEnsamblador.acquire();
                 main.salEnsamblador += 25;
                 main.semSalEnsamblador.release();
@@ -120,7 +120,7 @@ public class Ensamblador extends Thread {
             main.aMotores = main.aMotores - (int) main.cantMotores;
             main.aRuedas = main.aRuedas - (int) main.cantRuedas; 
 
-            main.salEnsamblador += ((this.tEnsam / 1000 * 24) * 6);
+            main.salEnsamblador += ((this.tEnsam / 1000 * 24) * 25);
 
             main.semSalEnsamblador.release();
             

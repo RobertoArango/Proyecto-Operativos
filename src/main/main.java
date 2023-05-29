@@ -12,7 +12,6 @@ import Bases.cChasis;
 import Bases.cMotor;
 import Bases.cRuedas;
 import java.util.concurrent.Semaphore;
-import Bases.lectorTXT;
 
 /**
  *
@@ -117,7 +116,6 @@ public class main {
         //se crea la cantidad de datos que existiran en el txt - se llama a la funcion para crear el txt (prueba)
         
         Datos = new int[25];
-        lectorTXT.escribir();
         
         //valores para carros fabricados
         
@@ -127,50 +125,50 @@ public class main {
         
         chasis = (float)0.25; //lo que se produce por dia
         cantChasis = 3; //lo que se requiere para fabricar un carro
-        cantProdChasis = 2;
-        tProdChasis = new cChasis[2]; //productores en el sector chasis pasado como parametro a la clase
+        cantProdChasis = Datos[7];
+        tProdChasis = new cChasis[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
         semSalChasis = new Semaphore(1);
-        semProdChasis = new Semaphore(25);//semaforo para el limite maximo de chasis en almacen
+        semProdChasis = new Semaphore(Datos[2]);//semaforo para el limite maximo de chasis en almacen
         mutexChasis = new Semaphore(1);
         
         //valores por carroceria
         
         carrocerias = (float)0.25; //lo que se produce por dia
         cantCarrocerias = 2; //lo que se requiere para fabricar un carro
-        cantProdCarroceria = 2;
-        tProdCarroceria = new cCarroceria[2]; //productores en el sector chasis pasado como parametro a la clase
+        cantProdCarroceria = Datos[8];
+        tProdCarroceria = new cCarroceria[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
         semSalCarroceria = new Semaphore(1);
-        semProdCarroceria = new Semaphore(20); //semaforo para el limite maximo de chasis en almacen
+        semProdCarroceria = new Semaphore(Datos[3]); //semaforo para el limite maximo de chasis en almacen
         mutexCarrocerias = new Semaphore (1);
         
         //valores por motores
         
         motores = 1;
         cantMotores = 4;
-        cantProdMotores = 2;
-        tProdMotor = new cMotor[2];
+        cantProdMotores = Datos[8];
+        tProdMotor = new cMotor[Datos[8]];
         semSalMotores = new Semaphore(1);
-        semProdMotores = new Semaphore(55);
+        semProdMotores = new Semaphore(Datos[4]);
         mutexMotores = new Semaphore (1);
         
         //valores por ruedas
         
         ruedas = 5;
         cantRuedas = 6;
-        cantProdRuedas = 2;
-        tProdRuedas = new cRuedas[2];
+        cantProdRuedas = Datos[9];
+        tProdRuedas = new cRuedas[Datos[7]];
         semSalRuedas = new Semaphore(1);
-        semProdRuedas = new Semaphore(35);
+        semProdRuedas = new Semaphore(Datos[5]);
         mutexRuedas = new Semaphore (1);
         
         //valores por accesorios
         
         accesorios = (float)0.5;
         cantAccesorios = 5;
-        cantProdAccesorios = 2;
-        tProdAccesorios = new cAccesorios[2];
+        cantProdAccesorios = Datos[10];
+        tProdAccesorios = new cAccesorios[Datos[10]];
         semSalAccesorios = new Semaphore(1);
-        semProdAccesorios = new Semaphore (10);
+        semProdAccesorios = new Semaphore (Datos[6]);
         mutexAccesorios = new Semaphore (1);
          
         // TODO code application logic here

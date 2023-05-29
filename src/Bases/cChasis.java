@@ -23,7 +23,7 @@ public class cChasis extends Productores {
     public void run() {
         try {
             while (this.semProduccion.availablePermits() == 0) {
-                Thread.sleep((long) (1* 1000 / 24));
+                Thread.sleep((long) (main.Datos[0]* 1000 / 24));
                 this.semSalario.acquire();
                 salario += 10;
                 this.semSalario.release();
@@ -34,7 +34,6 @@ public class cChasis extends Productores {
             this.semSalario.acquire();
             salario += ((tProduccion/1000)*10);
             main.aChasis++;
-            //System.out.println("Chasis:" + main.aChasis);
             this.mutex.release();
             this.semSalario.release();
             this.semEnsam.release();

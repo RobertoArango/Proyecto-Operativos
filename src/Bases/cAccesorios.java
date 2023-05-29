@@ -22,7 +22,7 @@ public class cAccesorios extends Productores {
     public void run() {
         try {
             while (this.semProduccion.availablePermits() == 0) {
-                Thread.sleep((long) (1* 1000 / 24));
+                Thread.sleep((long) (main.Datos[0]* 1000 / 24));
                 this.semSalario.acquire();
                 salario += 17;
                 this.semSalario.release();
@@ -33,7 +33,6 @@ public class cAccesorios extends Productores {
             this.semSalario.acquire();
             salario += ((tProduccion/1000)*17);
             main.aAccesorios++;
-            //System.out.println("Accesorios:" + main.aAccesorios);
             this.mutex.release();
             this.semSalario.release();
             this.semEnsam.release();

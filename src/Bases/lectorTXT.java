@@ -75,7 +75,7 @@ public class lectorTXT {
                     + "\nEnsambladores RR:\n" + Integer.toString(main.Datos[12])
                     
                     + "\nDia de entrega de vehiculos Mase:\n" + Integer.toString(main.Datos[13])
-                    + "\nCapacidad max en almacen Mase - Chasis - :\n" + Integer.toString(main.Datos[14])
+                    + "\nCapacidad max en almacen Mase - Chasis:\n" + Integer.toString(main.Datos[14])
                     + "\nCapacidad max en almacen Mase - Carrocerias:\n" + Integer.toString(main.Datos[15])
                     + "\nCapacidad max en almacen Mase - Motores:\n" + Integer.toString(main.Datos[16])
                     + "\nCapacidad max en almacen Mase - Ruedas:\n" + Integer.toString(main.Datos[17])

@@ -4,6 +4,7 @@
  */
 package Bases;
 import java.util.concurrent.Semaphore;
+import main.main;
 
 /**
  *
@@ -21,7 +22,7 @@ public abstract class Productores extends Thread{
        
     public Productores(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam ) {
         
-        this.tProduccion = (float)1/this.pDia*1000;
+        this.tProduccion = (float)main.Datos[0]/this.pDia*1000;
         this.pDia = pDia;
         this.salario = salario;
         this.mutex = mutex;
