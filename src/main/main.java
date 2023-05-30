@@ -6,6 +6,7 @@
 package main;
 
 import Bases.Ensamblador;
+import Bases.Gerente;
 import Bases.cAccesorios;
 import Bases.cCarroceria;
 import Bases.cChasis;
@@ -60,6 +61,9 @@ public class main {
     public static Semaphore mutexRuedas;
     public static Semaphore mutexAccesorios;
     public static Semaphore mutexCarros;
+    public static Semaphore mutexDiasEntrega;
+    public static Semaphore mutexGerenteT; //trabajando
+    public static Semaphore mutexDirectorT; 
     
     public static Semaphore semProdChasis;
     public static Semaphore semProdCarroceria;
@@ -79,6 +83,8 @@ public class main {
     public static Semaphore semSalRuedas;
     public static Semaphore semSalAccesorios;
     public static Semaphore semSalEnsamblador;
+    public static Semaphore semSalGerente;
+    public static Semaphore semSalDirector;
     
     //cantidad de productores en los sectores
     
@@ -233,6 +239,9 @@ public class main {
                     semProdChasis, semProdCarroceria, semProdMotores, semProdRuedas, semProdAccesorios);
             tProdEnsamblador[i].start();
         }
+        
+        Gerente g = new Gerente(Datos[1], mutexDiasEntrega, mutexGerenteT);
+        g.start();
        
     }
     
