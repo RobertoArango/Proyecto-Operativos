@@ -25,58 +25,62 @@ public class Gerente extends Thread {
         this.diaEntrega = diaEntrega;
         this.mutex = mutex;
         this.mutexTrabajando = mutexTrabajando;
-        this.intervaloVT = ((float) 30 * main.Datos[0] * 1000 / 960); //intervalo 
+        this.intervaloVT = ((float) 30*main.Datos[0]*1000/960); //intervalo 
         this.horasTrabajo = 0;
     }
     
-    public void run(){
-        try {
-            while (true) {
-                
-                //trabajando
-                
-                if (horasDia <= ((float) main.Datos[0]/16)){
-                    this.mutexTrabajando.acquire();
-                    main.tGerente = true;
-                    this.mutexTrabajando.release();
-                    Thread.sleep((long)(intervaloVT));
-                    horasTrabajo += (intervaloVT/1000);
-                    horasDia += (intervaloVT/1000);
+      public void run(){
+        while(true) { 
+            try {
+                while(horasTrabajo <= (float) (main.Datos[0])) {
+                    //las primeras 16 horas que varia entre trabajar y ver Formula 1
+                    if (horasDia <= (float) main.Datos[0]/16){
                     
-                //viendo Formula 1
-                    this.mutexTrabajando.acquire();
-                    main.tGerente = false;
-                    this.mutexTrabajando.release();
-                    Thread.sleep((long)(intervaloVT));
-                    horasTrabajo += (intervaloVT/1000);
-                    horasDia += (intervaloVT/1000);
-                }
-                //las 8 horas restantes que solamente trabaja
-                if (horasDia > ((float) main.Datos[0]/16)){
-                    this.mutexTrabajando.acquire();
-                    main.tGerente = true;
-                    this.mutexTrabajando.release();
-                    Thread.sleep((long)(intervaloVT));
-                    horasTrabajo += (intervaloVT/1000);
-                    horasDia += (intervaloVT/1000);
-                }
-                //reinicio del día y se le suma el sueldo
-                else if (horasDia >= ((float) main.Datos[0]/24)){
+                    //trabajando    
+                        this.mutexTrabajando.acquire();
+                        main.tGerente = true;
+                        this.mutexTrabajando.release();
+                        Thread.sleep((long) (intervaloVT));
+                        horasTrabajo += (intervaloVT / 1000);
+                        horasDia += (intervaloVT / 1000);
+
+                        //viendo Formula 1
+                        this.mutexTrabajando.acquire();
+                        main.tGerente = false;
+                        this.mutexTrabajando.release();
+                        Thread.sleep((long) (intervaloVT));
+                        horasTrabajo += (intervaloVT / 1000);
+                        horasDia += (intervaloVT / 1000);
+                    }
                     
-                    main.semSalGerente.acquire();
-                    main.salGerente += (20*24);
-                    main.semSalGerente.release();
-                    horasDia = 0;
+                    //las 8 horas restantes que solamente trabaja
+                    if (horasDia > ((float) main.Datos[0]/16)){
+                        this.mutexTrabajando.acquire();
+                        main.tGerente = true;
+                        this.mutexTrabajando.release();
+                        Thread.sleep((long)(intervaloVT));
+                        horasTrabajo += (intervaloVT/1000);
+                        horasDia += (intervaloVT/1000);
+                    }
+                    //reinicio del día y se le suma el sueldo
+                    else if (horasDia >= ((float) main.Datos[0] / 24)) {
+
+                        main.semSalGerente.acquire();
+                        main.salGerente += 20;
+                        main.semSalGerente.release();
+                        horasDia = 0;
+                    }
                 }
                 
                 this.mutex.acquire();
                 this.diaEntrega--;
                 horasTrabajo = 0;
                 this.mutex.release();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error gerente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                System.exit(1);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
-        }   
+        }
+           
     }
 }

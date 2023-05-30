@@ -5,6 +5,7 @@
  */
 package main;
 
+import Bases.Director;
 import Bases.Ensamblador;
 import Bases.Gerente;
 import Bases.cAccesorios;
@@ -35,6 +36,7 @@ public class main {
     public static volatile boolean tDirector = true;
     public static volatile int carros = 0;
     public static volatile int carrosTotal = 0;
+    public static volatile int entregas = 0;
     
     //cantidad producida por dia
     public static volatile int carnet;
@@ -64,6 +66,7 @@ public class main {
     public static Semaphore mutexDiasEntrega;
     public static Semaphore mutexGerenteT; //trabajando
     public static Semaphore mutexDirectorT; 
+    public static Semaphore mutexEntregas;
     
     public static Semaphore semProdChasis;
     public static Semaphore semProdCarroceria;
@@ -206,6 +209,16 @@ public class main {
         semProdAccesorios = new Semaphore (Datos[6]);
         mutexAccesorios = new Semaphore (1);
          
+        //valores gerente
+        mutexGerenteT = new Semaphore (1);
+        semSalGerente = new Semaphore (1);
+        mutexDiasEntrega = new Semaphore (1);
+        
+        //valores director
+        mutexDirectorT = new Semaphore (1);
+        semSalDirector = new Semaphore (1);
+        mutexEntregas = new Semaphore (1);
+        
         // TODO code application logic here
         
         for (int i = 0; i < cantProdChasis; i++) {
@@ -242,7 +255,8 @@ public class main {
         
         Gerente g = new Gerente(Datos[1], mutexDiasEntrega, mutexGerenteT);
         g.start();
-       
+        Director d = new Director(mutexDiasEntrega, mutexCarros, mutexDirectorT, mutexEntregas);
+        d.start();
     }
     
 }
