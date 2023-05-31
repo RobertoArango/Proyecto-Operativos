@@ -27,11 +27,11 @@ public class main {
     
     //los valores lo colocamos temporalmente como placeholder
     //la "a" indica que estan en almacen 
-    public static volatile int aChasis = 1; 
-    public static volatile int aCarrocerias = 1;
-    public static volatile int aMotores = 1;
-    public static volatile int aRuedas = 5;
-    public static volatile int aAccesorios = 1;
+    public static volatile int aChasis = 0; 
+    public static volatile int aCarrocerias = 0;
+    public static volatile int aMotores = 0;
+    public static volatile int aRuedas = 0;
+    public static volatile int aAccesorios = 0;
     public static volatile boolean tGerente = true;
     public static volatile boolean tDirector = true;
     public static volatile int carros = 0;
@@ -125,35 +125,8 @@ public class main {
         
         //se crea la cantidad de datos que existiran en el txt - se llama a la funcion para crear el txt (prueba)
         
-        Datos = new int[25];
+        Datos = new int[26];
         lectorTXT.leer();
-        
-        System.out.println(Datos[0]);
-        System.out.println(Datos[1]);
-        System.out.println(Datos[2]);
-        System.out.println(Datos[3]);
-        System.out.println(Datos[4]);
-        System.out.println(Datos[5]);
-        System.out.println(Datos[6]);
-        System.out.println(Datos[7]);
-        System.out.println(Datos[8]);
-        System.out.println(Datos[9]);
-        System.out.println(Datos[10]);
-        System.out.println(Datos[11]);
-        System.out.println(Datos[12]);
-        System.out.println(Datos[13]);
-        System.out.println(Datos[14]);
-        System.out.println(Datos[15]);
-        System.out.println(Datos[16]);
-        System.out.println(Datos[17]);
-        System.out.println(Datos[18]);
-        System.out.println(Datos[19]);
-        System.out.println(Datos[20]);
-        System.out.println(Datos[21]);
-        System.out.println(Datos[22]);
-        System.out.println(Datos[23]);
-        System.out.println(Datos[24]);
-        
         
         //valores para carros fabricados
         
@@ -166,48 +139,53 @@ public class main {
         cantProdChasis = Datos[7];
         tProdChasis = new cChasis[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
         semSalChasis = new Semaphore(1);
-        semProdChasis = new Semaphore(Datos[2]);//semaforo para el limite maximo de chasis en almacen
+        semProdChasis = new Semaphore(30);//semaforo para el limite maximo de chasis en almacen
         mutexChasis = new Semaphore(1);
+        semEnsamChasis = new Semaphore(0);
         
         //valores por carroceria
         
         carrocerias = (float)0.25; //lo que se produce por dia
         cantCarrocerias = 2; //lo que se requiere para fabricar un carro
         cantProdCarroceria = Datos[8];
-        tProdCarroceria = new cCarroceria[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
+        tProdCarroceria = new cCarroceria[Datos[8]]; //productores en el sector chasis pasado como parametro a la clase
         semSalCarroceria = new Semaphore(1);
         semProdCarroceria = new Semaphore(Datos[3]); //semaforo para el limite maximo de chasis en almacen
         mutexCarrocerias = new Semaphore (1);
+        semEnsamCarroceria = new Semaphore(0);
         
         //valores por motores
         
         motores = 1;
         cantMotores = 4;
-        cantProdMotores = Datos[8];
-        tProdMotor = new cMotor[Datos[8]];
+        cantProdMotores = Datos[9];
+        tProdMotor = new cMotor[Datos[9]];
         semSalMotores = new Semaphore(1);
         semProdMotores = new Semaphore(Datos[4]);
         mutexMotores = new Semaphore (1);
+        semEnsamMotores = new Semaphore(0);
         
         //valores por ruedas
         
         ruedas = 5;
         cantRuedas = 6;
-        cantProdRuedas = Datos[9];
-        tProdRuedas = new cRuedas[Datos[7]];
+        cantProdRuedas = Datos[10];
+        tProdRuedas = new cRuedas[Datos[10]];
         semSalRuedas = new Semaphore(1);
         semProdRuedas = new Semaphore(Datos[5]);
         mutexRuedas = new Semaphore (1);
+        semEnsamRuedas = new Semaphore(0);
         
         //valores por accesorios
         
         accesorios = (float)0.5;
         cantAccesorios = 5;
-        cantProdAccesorios = Datos[10];
-        tProdAccesorios = new cAccesorios[Datos[10]];
+        cantProdAccesorios = Datos[11];
+        tProdAccesorios = new cAccesorios[Datos[11]];
         semSalAccesorios = new Semaphore(1);
         semProdAccesorios = new Semaphore (Datos[6]);
         mutexAccesorios = new Semaphore (1);
+        semEnsamAccesorios = new Semaphore(0);
          
         //valores gerente
         mutexGerenteT = new Semaphore (1);
@@ -221,9 +199,13 @@ public class main {
         
         // TODO code application logic here
         
+        tProdEnsamblador = new Ensamblador[Datos[12]];
+        
+        
         for (int i = 0; i < cantProdChasis; i++) {
             tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis, semEnsamChasis );
             tProdChasis[i].start();
+            System.out.println("chasis:" + main.aChasis);
         }  
         
         for (int i = 0; i < cantProdCarroceria; i++) {

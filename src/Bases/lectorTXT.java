@@ -59,7 +59,7 @@ public class lectorTXT {
     
     public static void escribir() {
         try {
-            String nuevosDatos = "Conversion dias/seg:\n" + Integer.toString(main.Datos[0])
+            String nuevosDatos = "Conversion dias/seg RR:\n" + Integer.toString(main.Datos[0])
                     + "\nDia de entrega de vehiculos RR:\n" + Integer.toString(main.Datos[1])
                     + "\nCapacidad max en almacen RR - Chasis:\n" + Integer.toString(main.Datos[2])
                     + "\nCapacidad max en almacen RR - Carrocerias:\n" + Integer.toString(main.Datos[3])
@@ -72,18 +72,19 @@ public class lectorTXT {
                     + "\nProductores RR - Ruedas:\n" + Integer.toString(main.Datos[10])
                     + "\nProductores RR - Accesorios:\n" + Integer.toString(main.Datos[11])
                     + "\nEnsambladores RR:\n" + Integer.toString(main.Datos[12])
-                    + "\nDia de entrega de vehiculos Mase:\n" + Integer.toString(main.Datos[13])
-                    + "\nCapacidad max en almacen Mase - Chasis:\n" + Integer.toString(main.Datos[14])
-                    + "\nCapacidad max en almacen Mase - Carrocerias:\n" + Integer.toString(main.Datos[15])
-                    + "\nCapacidad max en almacen Mase - Motores:\n" + Integer.toString(main.Datos[16])
-                    + "\nCapacidad max en almacen Mase - Ruedas:\n" + Integer.toString(main.Datos[17])
-                    + "\nCapacidad max en almacen Mase - Accesorios:\n" + Integer.toString(main.Datos[18])
-                    + "\nProductores Mase - Chasis:\n" + Integer.toString(main.Datos[19])
-                    + "\nProductores Mase - Carrocerias:\n" + Integer.toString(main.Datos[20])
-                    + "\nProductores Mase - Motores:\n" + Integer.toString(main.Datos[21])
-                    + "\nProductores Mase - Ruedas:\n" + Integer.toString(main.Datos[22])
-                    + "\nProductores Mase - Accesorios:\n" + Integer.toString(main.Datos[23])
-                    + "\nEnsambladores Mase:\n" + Integer.toString(main.Datos[24]);
+                    + "Conversion dias/seg Mase:\n" + Integer.toString(main.Datos[13])
+                    + "\nDia de entrega de vehiculos Mase:\n" + Integer.toString(main.Datos[14])
+                    + "\nCapacidad max en almacen Mase - Chasis:\n" + Integer.toString(main.Datos[15])
+                    + "\nCapacidad max en almacen Mase - Carrocerias:\n" + Integer.toString(main.Datos[16])
+                    + "\nCapacidad max en almacen Mase - Motores:\n" + Integer.toString(main.Datos[17])
+                    + "\nCapacidad max en almacen Mase - Ruedas:\n" + Integer.toString(main.Datos[18])
+                    + "\nCapacidad max en almacen Mase - Accesorios:\n" + Integer.toString(main.Datos[19])
+                    + "\nProductores Mase - Chasis:\n" + Integer.toString(main.Datos[20])
+                    + "\nProductores Mase - Carrocerias:\n" + Integer.toString(main.Datos[21])
+                    + "\nProductores Mase - Motores:\n" + Integer.toString(main.Datos[22])
+                    + "\nProductores Mase - Ruedas:\n" + Integer.toString(main.Datos[23])
+                    + "\nProductores Mase - Accesorios:\n" + Integer.toString(main.Datos[24])
+                    + "\nEnsambladores Mase:\n" + Integer.toString(main.Datos[25]);
             
             PrintWriter pw = new PrintWriter("test\\Datos.txt");
             pw.print(nuevosDatos);

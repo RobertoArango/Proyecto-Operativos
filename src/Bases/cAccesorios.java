@@ -20,25 +20,27 @@ public class cAccesorios extends Productores {
     
     @Override
     public void run() {
-        try {
-            while (this.semProduccion.availablePermits() == 0) {
-                Thread.sleep((long) (main.Datos[0]* 1000 / 24));
+        while (activo) {
+            try {
+                while (this.semProduccion.availablePermits() == 0) {
+                    Thread.sleep((long) (main.Datos[0] * 1000 / 24));
+                    this.semSalario.acquire();
+                    salario += 17;
+                    this.semSalario.release();
+                }
+                Thread.sleep((long) this.tProduccion);
+                this.semProduccion.acquire();
+                this.mutex.acquire();
                 this.semSalario.acquire();
-                salario += 17;
+                salario += ((tProduccion / 1000) * 17);
+                main.aAccesorios++;
+                this.mutex.release();
                 this.semSalario.release();
+                this.semEnsam.release();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+                System.exit(1);
             }
-            Thread.sleep((long) this.tProduccion);
-            this.semProduccion.acquire();
-            this.mutex.acquire();
-            this.semSalario.acquire();
-            salario += ((tProduccion/1000)*17);
-            main.aAccesorios++;
-            this.mutex.release();
-            this.semSalario.release();
-            this.semEnsam.release();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
         }
-   }
+    }
 }
