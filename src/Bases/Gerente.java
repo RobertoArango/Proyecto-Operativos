@@ -33,28 +33,33 @@ public class Gerente extends Thread {
         while(true) { 
             try {
                 while(horasTrabajo <= (float) (main.Datos[0])) {
+                    System.out.println(diaEntrega);
                     //las primeras 16 horas que varia entre trabajar y ver Formula 1
-                    if (horasDia <= (float) main.Datos[0]/16){
+                    //if (horasDia <= (float) main.Datos[0]/16){
                     
-                    //trabajando    
-                        this.mutexTrabajando.acquire();
-                        main.tGerente = true;
-                        this.mutexTrabajando.release();
-                        Thread.sleep((long) (intervaloVT));
-                        horasTrabajo += (intervaloVT / 1000);
-                        horasDia += (intervaloVT / 1000);
+                    //trabajando
+                    //System.out.println(horasDia + "trabajo");
+                    this.mutexTrabajando.acquire();
+                    main.tGerente = true;
+                    this.mutexTrabajando.release();
+                    Thread.sleep((long) (intervaloVT));
+                    horasTrabajo += (intervaloVT / 1000);
+                    horasDia += (intervaloVT / 1000);
 
-                        //viendo Formula 1
-                        this.mutexTrabajando.acquire();
-                        main.tGerente = false;
-                        this.mutexTrabajando.release();
-                        Thread.sleep((long) (intervaloVT));
-                        horasTrabajo += (intervaloVT / 1000);
-                        horasDia += (intervaloVT / 1000);
-                    }
+                    //viendo Formula 1
+                    //System.out.println(horasDia + "viendo");
+                    this.mutexTrabajando.acquire();
+                    main.tGerente = false;
+                    this.mutexTrabajando.release();
+                    Thread.sleep((long) (intervaloVT));
+                    horasTrabajo += (intervaloVT / 1000);
+                    horasDia += (intervaloVT / 1000);
+                    //}
                     
                     //las 8 horas restantes que solamente trabaja
-                    if (horasDia > ((float) main.Datos[0]/16)){
+                    if (horasDia >= ((float) main.Datos[0])/16){
+                        //System.out.println(horasDia + "potente");
+                        
                         this.mutexTrabajando.acquire();
                         main.tGerente = true;
                         this.mutexTrabajando.release();
@@ -63,7 +68,8 @@ public class Gerente extends Thread {
                         horasDia += (intervaloVT/1000);
                     }
                     //reinicio del día y se le suma el sueldo
-                    else if (horasDia >= ((float) main.Datos[0] / 24)) {
+                    if (horasDia >= ((float) main.Datos[0]) / 24) {
+                        //System.out.println(horasDia + "reinicio");
 
                         main.semSalGerente.acquire();
                         main.salGerente += 20;
@@ -74,6 +80,7 @@ public class Gerente extends Thread {
                 
                 this.mutex.acquire();
                 this.diaEntrega--;
+                System.out.println(diaEntrega);
                 horasTrabajo = 0;
                 this.mutex.release();
             } catch (Exception e) {
