@@ -42,19 +42,22 @@ public class Director extends Thread {
                 if (Gerente.diaEntrega >= 1){ //No tiene que realizar entregas
                     this.mutex.release();
                     this.mutexTrabajando.acquire();
+                    //System.out.println("trabajando director");
                     main.tDirector = true;
                     this.mutexTrabajando.release();
                     if (main.tGerente = false){
+                        System.out.println(main.tGerente);
                         main.semSalGerente.acquire();
                         main.salGerente -= 50;
                         main.semSalGerente.release();
                     }   
-                }
-                else {
+                } else {
+                    System.out.println("entregando");
                     Gerente.diaEntrega = main.Datos[1];
                     this.mutex.release();
                     this.mutexEntregas.acquire();
                     main.entregas++;
+                    System.out.println(main.entregas);
                     this.mutexEntregas.release();
                     this.mutexTrabajando.acquire();
                     main.tDirector = false;
