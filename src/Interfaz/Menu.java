@@ -110,6 +110,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         carrosAccMase = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
+        iniciarMase = new javax.swing.JButton();
         zBG_Mase = new javax.swing.JLabel();
         dataRolllsRoyce = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -184,6 +185,7 @@ public class Menu extends javax.swing.JFrame {
         ganaciasRR = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         carrosAccRR = new javax.swing.JLabel();
+        iniciarRR = new javax.swing.JButton();
         BG_RR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -575,6 +577,15 @@ public class Menu extends javax.swing.JFrame {
         Maserati.add(carrosAccMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 40, 50));
         Maserati.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 130));
 
+        iniciarMase.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        iniciarMase.setText("Iniciar simulacion");
+        iniciarMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarMaseActionPerformed(evt);
+            }
+        });
+        Maserati.add(iniciarMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
+
         zBG_Mase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG mase.png"))); // NOI18N
         Maserati.add(zBG_Mase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -954,6 +965,15 @@ public class Menu extends javax.swing.JFrame {
         carrosAccRR.setText("-");
         RollsRoyce.add(carrosAccRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 40, 50));
 
+        iniciarRR.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        iniciarRR.setText("Iniciar simulacion");
+        iniciarRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarRRActionPerformed(evt);
+            }
+        });
+        RollsRoyce.add(iniciarRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
+
         BG_RR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG RR.png"))); // NOI18N
         RollsRoyce.add(BG_RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -1044,6 +1064,14 @@ public class Menu extends javax.swing.JFrame {
     private void inicialDeadlineRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialDeadlineRRActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inicialDeadlineRRActionPerformed
+
+    private void iniciarMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarMaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciarMaseActionPerformed
+
+    private void iniciarRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciarRRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1163,6 +1191,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField inicialProdRuedasRR;
     private javax.swing.JTextField inicialTiempoMase;
     private javax.swing.JTextField inicialTiempoRR;
+    private javax.swing.JButton iniciarMase;
+    private javax.swing.JButton iniciarRR;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
