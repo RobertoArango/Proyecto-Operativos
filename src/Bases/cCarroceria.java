@@ -33,7 +33,7 @@ public class cCarroceria extends Productores {
                 this.mutex.acquire();
                 this.semSalario.acquire();
                 salario += ((tProduccion / 1000) * 13);
-                main.aCarrocerias++;
+                main.aRRCarrocerias++;
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

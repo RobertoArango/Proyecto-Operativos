@@ -25,98 +25,175 @@ public class main {
     //variable para datos iniciales de la simulacion 
     public static int[] Datos;
     
-    //los valores lo colocamos temporalmente como placeholder
+    //almacen para Rolls Royce
     //la "a" indica que estan en almacen 
-    public static volatile int aChasis = 0; 
-    public static volatile int aCarrocerias = 0;
-    public static volatile int aMotores = 0;
-    public static volatile int aRuedas = 0;
-    public static volatile int aAccesorios = 0;
-    public static volatile boolean tGerente = true;
-    public static volatile boolean tDirector = true;
-    public static volatile int carros = 0;
-    public static volatile int carrosTotal = 0;
-    public static volatile int entregas = 0;
+    public static volatile int aRRChasis = 0; 
+    public static volatile int aRRCarrocerias = 0;
+    public static volatile int aRRMotores = 0;
+    public static volatile int aRRRuedas = 0;
+    public static volatile int aRRAccesorios = 0;
+    public static volatile boolean tRRGerente = true;
+    public static volatile boolean tRRDirector = true;
+    public static volatile int RRcarros = 0;
+    public static volatile int RRcarrosTotal = 0;
+    public static volatile int RRentregas = 0;
     
-    //cantidad producida por dia
+    //almacen para Maserati
+    
+    public static volatile int aMChasis = 0; 
+    public static volatile int aMCarrocerias = 0;
+    public static volatile int aMMotores = 0;
+    public static volatile int aMRuedas = 0;
+    public static volatile int aMAccesorios = 0;
+    public static volatile boolean tMGerente = true;
+    public static volatile boolean tMDirector = true;
+    public static volatile int Mcarros = 0;
+    public static volatile int McarrosTotal = 0;
+    public static volatile int Mentregas = 0;
+    
+    //cantidad producida por dia Rolls Royce
     public static volatile int carnet;
-    public static volatile float chasis;
-    public static volatile float carrocerias;
-    public static volatile float motores;
-    public static volatile float ruedas;
-    public static volatile float accesorios;
+    public static volatile float RRchasis;
+    public static volatile float RRcarrocerias;
+    public static volatile float RRmotores;
+    public static volatile float RRruedas;
+    public static volatile float RRaccesorios;
     
-    //cantidad de piezas necesarias para fabircar el carro 
-    public static volatile float cantChasis;
-    public static volatile float cantCarrocerias;
-    public static volatile float cantMotores;
-    public static volatile float cantRuedas;
-    public static volatile float cantAccesorios;
-    public static volatile float precio;
-    public static volatile float maximoProducto;
+    //cantidad producida por dia Maserati
+    public static volatile float Mchasis;
+    public static volatile float Mcarrocerias;
+    public static volatile float Mmotores;
+    public static volatile float Mruedas;
+    public static volatile float Maccesorios;
+    
+    //cantidad de piezas necesarias para fabircar el carro Rolls Royce 
+    public static volatile float RRcantChasis;
+    public static volatile float RRcantCarrocerias;
+    public static volatile float RRcantMotores;
+    public static volatile float RRcantRuedas;
+    public static volatile float RRcantAccesorios;
+    public static volatile float RRprecio;
+    public static volatile float RRmaximoProducto;
+    
+    //cantidad de piezas necesaria para fabricar el carro Maserati
+    public static volatile float McantChasis;
+    public static volatile float McantCarrocerias;
+    public static volatile float McantMotores;
+    public static volatile float McantRuedas;
+    public static volatile float McantAccesorios;
+    public static volatile float Mprecio;
+    public static volatile float MmaximoProducto;
     
     //semaforos
     
-    public static Semaphore mutexChasis;
-    public static Semaphore mutexCarrocerias;
-    public static Semaphore mutexMotores;
-    public static Semaphore mutexRuedas;
-    public static Semaphore mutexAccesorios;
-    public static Semaphore mutexCarros;
-    public static Semaphore mutexDiasEntrega;
-    public static Semaphore mutexGerenteT; //trabajando
-    public static Semaphore mutexDirectorT; 
-    public static Semaphore mutexEntregas;
+    public static Semaphore RRmutexChasis;
+    public static Semaphore MmutexChasis;
+    public static Semaphore RRmutexCarrocerias;
+    public static Semaphore MmutexCarrocerias;
+    public static Semaphore RRmutexMotores;
+    public static Semaphore MmutexMotores;
+    public static Semaphore RRmutexRuedas;
+    public static Semaphore MmutexRuedas;
+    public static Semaphore RRmutexAccesorios;
+    public static Semaphore MmutexAccesorios;
+    public static Semaphore RRmutexCarros;
+    public static Semaphore MmutexCarros;
+    public static Semaphore RRmutexDiasEntrega;
+    public static Semaphore MmutexDiasEntrega;
+    public static Semaphore RRmutexGerenteT; //trabajando
+    public static Semaphore MmutexGerenteT;
+    public static Semaphore RRmutexDirectorT;
+    public static Semaphore MmutexDirectorT;
+    public static Semaphore RRmutexEntregas;
+    public static Semaphore MmutexEntregas;
     
-    public static Semaphore semProdChasis;
-    public static Semaphore semProdCarroceria;
-    public static Semaphore semProdMotores;
-    public static Semaphore semProdRuedas;
-    public static Semaphore semProdAccesorios;
+    public static Semaphore RRsemProdChasis;
+    public static Semaphore MsemProdChasis;
+    public static Semaphore RRsemProdCarroceria;
+    public static Semaphore MsemProdCarroceria;
+    public static Semaphore RRsemProdMotores;
+    public static Semaphore MsemProdMotores;
+    public static Semaphore RRsemProdRuedas;
+    public static Semaphore MsemProdRuedas;
+    public static Semaphore RRsemProdAccesorios;
+    public static Semaphore MsemProdAccesorios;
     
-    public static Semaphore semEnsamChasis;
-    public static Semaphore semEnsamCarroceria;
-    public static Semaphore semEnsamMotores;
-    public static Semaphore semEnsamRuedas;
-    public static Semaphore semEnsamAccesorios;
+    public static Semaphore RRsemEnsamChasis;
+    public static Semaphore MsemEnsamChasis;
+    public static Semaphore RRsemEnsamCarroceria;
+    public static Semaphore MsemEnsamCarroceria;
+    public static Semaphore RRsemEnsamMotores;
+    public static Semaphore MsemEnsamMotores;
+    public static Semaphore RRsemEnsamRuedas;
+    public static Semaphore MsemEnsamRuedas;
+    public static Semaphore RRsemEnsamAccesorios;
+    public static Semaphore MsemEnsamAccesorios;
     
-    public static Semaphore semSalChasis;
-    public static Semaphore semSalCarroceria;
-    public static Semaphore semSalMotores;
-    public static Semaphore semSalRuedas;
-    public static Semaphore semSalAccesorios;
-    public static Semaphore semSalEnsamblador;
-    public static Semaphore semSalGerente;
-    public static Semaphore semSalDirector;
+    public static Semaphore RRsemSalChasis;
+    public static Semaphore MsemSalChasis;
+    public static Semaphore RRsemSalCarroceria;
+    public static Semaphore MsemSalCarroceria;
+    public static Semaphore RRsemSalMotores;
+    public static Semaphore MsemSalMotores;
+    public static Semaphore RRsemSalRuedas;
+    public static Semaphore MsemSalRuedas;
+    public static Semaphore RRsemSalAccesorios;
+    public static Semaphore MsemSalAccesorios;
+    public static Semaphore RRsemSalEnsamblador;
+    public static Semaphore MsemSalEnsamblador;
+    public static Semaphore RRsemSalGerente;
+    public static Semaphore MsemSalGerente;
+    public static Semaphore RRsemSalDirector;
+    public static Semaphore MsemSalDirector;
     
     //cantidad de productores en los sectores
     
-    public static volatile int cantProdChasis;
-    public static volatile int cantProdCarroceria;
-    public static volatile int cantProdMotores;
-    public static volatile int cantProdRuedas;
-    public static volatile int cantProdAccesorios;
-    public static volatile int cantProdEnsamblador;
+    public static volatile int RRcantProdChasis;
+    public static volatile int McantProdChasis;
+    public static volatile int RRcantProdCarroceria;
+    public static volatile int McantProdCarroceria;
+    public static volatile int RRcantProdMotores;
+    public static volatile int McantProdMotores;
+    public static volatile int RRcantProdRuedas;
+    public static volatile int McantProdRuedas;
+    public static volatile int RRcantProdAccesorios;
+    public static volatile int McantProdAccesorios;
+    public static volatile int RRcantProdEnsamblador;
+    public static volatile int McantProdEnsamblador;
     
     //cantidad de productores trabajando
     
-    public static volatile cChasis tProdChasis[];
-    public static volatile cCarroceria tProdCarroceria[];
-    public static volatile cMotor tProdMotor[];
-    public static volatile cRuedas tProdRuedas[];
-    public static volatile cAccesorios tProdAccesorios[];
-    public static volatile Ensamblador tProdEnsamblador[];
+    public static volatile cChasis[] RRtProdChasis;
+    public static volatile cChasis[] MtProdChasis;
+    public static volatile cCarroceria[] RRtProdCarroceria;
+    public static volatile cCarroceria[] MtProdCarroceria;
+    public static volatile cMotor[] RRtProdMotor;
+    public static volatile cMotor[] MtProdMotor;
+    public static volatile cRuedas[] RRtProdRuedas;
+    public static volatile cRuedas[] MtProdRuedas;
+    public static volatile cAccesorios[] RRtProdAccesorios;
+    public static volatile cAccesorios[] MtProdAccesorios;
+    public static volatile Ensamblador[] RRtProdEnsamblador;
+    public static volatile Ensamblador[] MtProdEnsamblador;
     
     //variables salarios trabajadores
     
-    public static volatile float salChasis = 0;
-    public static volatile float salCarroceria = 0;
-    public static volatile float salMotores = 0;
-    public static volatile float salRuedas = 0;
-    public static volatile float salAccesorios = 0;
-    public static volatile float salEnsamblador = 0;
-    public static volatile float salGerente = 0;
-    public static volatile float salDirector = 0;
+    public static volatile float RRsalChasis = 0;
+    public static volatile float MsalChasis = 0;
+    public static volatile float RRsalCarroceria = 0;
+    public static volatile float MsalCarroceria = 0;
+    public static volatile float RRsalMotores = 0;
+    public static volatile float MsalMotores = 0;
+    public static volatile float RRsalRuedas = 0;
+    public static volatile float MsalRuedas = 0;
+    public static volatile float RRsalAccesorios = 0;
+    public static volatile float MsalAccesorios = 0;
+    public static volatile float RRsalEnsamblador = 0;
+    public static volatile float MsalEnsamblador = 0;
+    public static volatile float RRsalGerente = 0;
+    public static volatile float MsalGerente = 0;
+    public static volatile float RRsalDirector = 0;
+    public static volatile float MsalDirector = 0;
  
     /**
      * @param args the command line arguments
@@ -130,114 +207,233 @@ public class main {
         
         //valores para carros fabricados
         
-        mutexCarros = new Semaphore (1);
+        RRmutexCarros = new Semaphore (1);
+        MmutexCarros = new Semaphore (1);
         
-        //valores por chasis
+        //valores por chasis Rolls Royce
         
-        chasis = (float)0.25; //lo que se produce por dia
-        cantChasis = 3; //lo que se requiere para fabricar un carro
-        cantProdChasis = Datos[7];
-        tProdChasis = new cChasis[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
-        semSalChasis = new Semaphore(1);
-        semProdChasis = new Semaphore(Datos[2]);//semaforo para el limite maximo de chasis en almacen
-        mutexChasis = new Semaphore(1);
-        semEnsamChasis = new Semaphore(0);
+        RRchasis = (float)0.25; //lo que se produce por dia
+        RRcantChasis = 3; //lo que se requiere para fabricar un carro
+        RRcantProdChasis = Datos[7];
+        RRtProdChasis = new cChasis[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
+        RRsemSalChasis = new Semaphore(1);
+        RRsemProdChasis = new Semaphore(Datos[2]);//semaforo para el limite maximo de chasis en almacen
+        RRmutexChasis = new Semaphore(1);
+        RRsemEnsamChasis = new Semaphore(0);
         
-        //valores por carroceria
+        //valores por chasis Maserati
         
-        carrocerias = (float)0.25; //lo que se produce por dia
-        cantCarrocerias = 2; //lo que se requiere para fabricar un carro
-        cantProdCarroceria = Datos[8];
-        tProdCarroceria = new cCarroceria[Datos[8]]; //productores en el sector chasis pasado como parametro a la clase
-        semSalCarroceria = new Semaphore(1);
-        semProdCarroceria = new Semaphore(Datos[3]); //semaforo para el limite maximo de chasis en almacen
-        mutexCarrocerias = new Semaphore (1);
-        semEnsamCarroceria = new Semaphore(0);
+        Mchasis = ((float)1/3); //lo que se produce por dia
+        McantChasis = 1; //lo que se requiere para fabricar un carro
+        McantProdChasis = Datos[20];
+        MtProdChasis = new cChasis[Datos[20]]; //productores en el sector chasis pasado como parametro a la clase
+        MsemSalChasis = new Semaphore(1);
+        MsemProdChasis = new Semaphore(Datos[15]);//semaforo para el limite maximo de chasis en almacen
+        MmutexChasis = new Semaphore(1);
+        MsemEnsamChasis = new Semaphore(0);
         
-        //valores por motores
+        //valores por carroceria Rolls Royce
         
-        motores = 1;
-        cantMotores = 4;
-        cantProdMotores = Datos[9];
-        tProdMotor = new cMotor[Datos[9]];
-        semSalMotores = new Semaphore(1);
-        semProdMotores = new Semaphore(Datos[4]);
-        mutexMotores = new Semaphore (1);
-        semEnsamMotores = new Semaphore(0);
+        RRcarrocerias = (float)0.25; //lo que se produce por dia
+        RRcantCarrocerias = 2; //lo que se requiere para fabricar un carro
+        RRcantProdCarroceria = Datos[8];
+        RRtProdCarroceria = new cCarroceria[Datos[8]]; //productores en el sector chasis pasado como parametro a la clase
+        RRsemSalCarroceria = new Semaphore(1);
+        RRsemProdCarroceria = new Semaphore(Datos[3]); //semaforo para el limite maximo de chasis en almacen
+        RRmutexCarrocerias = new Semaphore (1);
+        RRsemEnsamCarroceria = new Semaphore(0);
         
-        //valores por ruedas
+        //valores por carroceria Maserati
         
-        ruedas = 5;
-        cantRuedas = 6;
-        cantProdRuedas = Datos[10];
-        tProdRuedas = new cRuedas[Datos[10]];
-        semSalRuedas = new Semaphore(1);
-        semProdRuedas = new Semaphore(Datos[5]);
-        mutexRuedas = new Semaphore (1);
-        semEnsamRuedas = new Semaphore(0);
+        Mcarrocerias = ((float)1/3); //lo que se produce por dia
+        McantCarrocerias = 1; //lo que se requiere para fabricar un carro
+        McantProdCarroceria = Datos[16];
+        MtProdCarroceria = new cCarroceria[Datos[16]]; //productores en el sector chasis pasado como parametro a la clase
+        MsemSalCarroceria = new Semaphore(1);
+        MsemProdCarroceria = new Semaphore(Datos[21]); //semaforo para el limite maximo de chasis en almacen
+        MmutexCarrocerias = new Semaphore (1);
+        MsemEnsamCarroceria = new Semaphore(0);
         
-        //valores por accesorios
+        //valores por motores Rolls Royce
         
-        accesorios = (float)0.5;
-        cantAccesorios = 5;
-        cantProdAccesorios = Datos[11];
-        tProdAccesorios = new cAccesorios[Datos[11]];
-        semSalAccesorios = new Semaphore(1);
-        semProdAccesorios = new Semaphore (Datos[6]);
-        mutexAccesorios = new Semaphore (1);
-        semEnsamAccesorios = new Semaphore(0);
+        RRmotores = 1;
+        RRcantMotores = 4;
+        RRcantProdMotores = Datos[9];
+        RRtProdMotor = new cMotor[Datos[9]];
+        RRsemSalMotores = new Semaphore(1);
+        RRsemProdMotores = new Semaphore(Datos[4]);
+        RRmutexMotores = new Semaphore (1);
+        RRsemEnsamMotores = new Semaphore(0);
+        
+        //valores por motores Maserati
+        
+        Mmotores = 2;
+        McantMotores = 2;
+        McantProdMotores = Datos[17];
+        MtProdMotor = new cMotor[Datos[17]];
+        MsemSalMotores = new Semaphore(1);
+        MsemProdMotores = new Semaphore(Datos[22]);
+        MmutexMotores = new Semaphore (1);
+        MsemEnsamMotores = new Semaphore(0);
+        
+        //valores por ruedas Rolls Royce
+        
+        RRruedas = 5;
+        RRcantRuedas = 6;
+        RRcantProdRuedas = Datos[10];
+        RRtProdRuedas = new cRuedas[Datos[10]];
+        RRsemSalRuedas = new Semaphore(1);
+        RRsemProdRuedas = new Semaphore(Datos[5]);
+        RRmutexRuedas = new Semaphore (1);
+        RRsemEnsamRuedas = new Semaphore(0);
+        
+        //valores por ruedas Maserati
+        
+        Mruedas = 3;
+        McantRuedas = 4;
+        McantProdRuedas = Datos[18];
+        MtProdRuedas = new cRuedas[Datos[18]];
+        MsemSalRuedas = new Semaphore(1);
+        MsemProdRuedas = new Semaphore(Datos[23]);
+        MmutexRuedas = new Semaphore (1);
+        MsemEnsamRuedas = new Semaphore(0);
+        
+        //valores por accesorios Rolls Royce
+        
+        RRaccesorios = (float)0.5;
+        RRcantAccesorios = 5;
+        RRcantProdAccesorios = Datos[11];
+        RRtProdAccesorios = new cAccesorios[Datos[11]];
+        RRsemSalAccesorios = new Semaphore(1);
+        RRsemProdAccesorios = new Semaphore (Datos[6]);
+        RRmutexAccesorios = new Semaphore (1);
+        RRsemEnsamAccesorios = new Semaphore(0);
+        
+        //valores por accesorios Maserati
+        
+        Maccesorios = ((float)1/3);
+        McantAccesorios = 3;
+        McantProdAccesorios = Datos[19];
+        MtProdAccesorios = new cAccesorios[Datos[19]];
+        MsemSalAccesorios = new Semaphore(1);
+        MsemProdAccesorios = new Semaphore (Datos[24]);
+        MmutexAccesorios = new Semaphore (1);
+        MsemEnsamAccesorios = new Semaphore(0);
          
-        //valores gerente
-        mutexGerenteT = new Semaphore (1);
-        semSalGerente = new Semaphore (1);
-        mutexDiasEntrega = new Semaphore (1);
+        //valores gerente Rolls Royce
+        RRmutexGerenteT = new Semaphore (1);
+        RRsemSalGerente = new Semaphore (1);
+        RRmutexDiasEntrega = new Semaphore (1);
         
-        //valores director
-        mutexDirectorT = new Semaphore (1);
-        semSalDirector = new Semaphore (1);
-        mutexEntregas = new Semaphore (1);
+        //valores gerente Maserati
+        
+        MmutexGerenteT = new Semaphore (1);
+        MsemSalGerente = new Semaphore (1);
+        MmutexDiasEntrega = new Semaphore (1);
+        
+        //valores director Rolls Royce
+        RRmutexDirectorT = new Semaphore (1);
+        RRsemSalDirector = new Semaphore (1);
+        RRmutexEntregas = new Semaphore (1);
+        
+        //valores director Maserati
+        MmutexDirectorT = new Semaphore (1);
+        MsemSalDirector = new Semaphore (1);
+        MmutexEntregas = new Semaphore (1);
         
         // TODO code application logic here
         
-        tProdEnsamblador = new Ensamblador[Datos[12]];
+        RRtProdEnsamblador = new Ensamblador[Datos[12]];
+        MtProdEnsamblador = new Ensamblador[Datos[25]];
         
-        
-        for (int i = 0; i < cantProdChasis; i++) {
-            tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis, semEnsamChasis );
-            tProdChasis[i].start();
+        //for para producir chasis RR y M
+        for (int i = 0; i < RRcantProdChasis; i++) {
+            RRtProdChasis[i] = new cChasis(RRchasis, RRsalChasis, RRmutexChasis, RRsemProdChasis, RRsemSalChasis, RRsemEnsamChasis );
+            RRtProdChasis[i].start();
+            System.out.println("chasis:" + main.aRRChasis);
         }  
         
-        for (int i = 0; i < cantProdCarroceria; i++) {
-            tProdCarroceria[i] = new cCarroceria(carrocerias, salCarroceria, mutexCarrocerias, semProdCarroceria, semSalCarroceria, semEnsamCarroceria);
-            tProdCarroceria[i].start();
+        for (int i = 0; i < McantProdChasis; i++) {
+            MtProdChasis[i] = new cChasis(Mchasis, MsalChasis, MmutexChasis, MsemProdChasis, MsemSalChasis, MsemEnsamChasis );
+            MtProdChasis[i].start();
+            System.out.println("chasis:" + main.aMChasis);
+        }  
+        
+        //for para producir carroceias RR y M
+        for (int i = 0; i < RRcantProdCarroceria; i++) {
+            RRtProdCarroceria[i] = new cCarroceria(RRcarrocerias, RRsalCarroceria, RRmutexCarrocerias, RRsemProdCarroceria, RRsemSalCarroceria, RRsemEnsamCarroceria);
+            RRtProdCarroceria[i].start();
         }
         
-        for (int i = 0; i < cantProdMotores; i++) {
-            tProdMotor[i] = new cMotor(motores, salMotores, mutexMotores, semProdMotores, semSalMotores, semEnsamMotores);
-            tProdMotor[i].start();
+        for (int i = 0; i < McantProdCarroceria; i++) {
+            MtProdCarroceria[i] = new cCarroceria(Mcarrocerias, MsalCarroceria, MmutexCarrocerias, MsemProdCarroceria, MsemSalCarroceria, MsemEnsamCarroceria);
+            MtProdCarroceria[i].start();
         }
         
-        for (int i = 0; i < cantProdRuedas; i++) {
-            tProdRuedas[i] = new cRuedas(ruedas, salRuedas, mutexRuedas, semProdRuedas, semSalRuedas, semEnsamRuedas);
-            tProdRuedas[i].start();
+        //for para producir motores RR y M
+        for (int i = 0; i < RRcantProdMotores; i++) {
+            RRtProdMotor[i] = new cMotor(RRmotores, RRsalMotores, RRmutexMotores, RRsemProdMotores, RRsemSalMotores, RRsemEnsamMotores);
+            RRtProdMotor[i].start();
         }
         
-        for (int i = 0; i < cantProdAccesorios; i++) {
-            tProdAccesorios[i] = new cAccesorios(accesorios, salAccesorios, mutexAccesorios, semProdAccesorios, semSalAccesorios, semEnsamAccesorios);
-            tProdAccesorios[i].start();
+        for (int i = 0; i < McantProdMotores; i++) {
+            MtProdMotor[i] = new cMotor(Mmotores, MsalMotores, MmutexMotores, MsemProdMotores, MsemSalMotores, MsemEnsamMotores);
+            MtProdMotor[i].start();
         }
         
-        for (int i = 0; i < cantProdEnsamblador; i++) {
-            tProdEnsamblador[i] = new Ensamblador(mutexChasis, mutexCarrocerias, mutexMotores, mutexRuedas, mutexAccesorios, mutexCarros,
-                    semEnsamChasis, semEnsamCarroceria, semEnsamMotores, semEnsamRuedas, semEnsamAccesorios,
-                    semProdChasis, semProdCarroceria, semProdMotores, semProdRuedas, semProdAccesorios);
-            tProdEnsamblador[i].start();
+        
+        //for para proudicr ruedas RR y M
+        for (int i = 0; i < RRcantProdRuedas; i++) {
+            RRtProdRuedas[i] = new cRuedas(RRruedas, RRsalRuedas, RRmutexRuedas, RRsemProdRuedas, RRsemSalRuedas, RRsemEnsamRuedas);
+            RRtProdRuedas[i].start();
         }
         
-        Gerente g = new Gerente(Datos[1], mutexDiasEntrega, mutexGerenteT);
-        g.start();
-        Director d = new Director(mutexDiasEntrega, mutexCarros, mutexDirectorT, mutexEntregas);
-        d.start();
+        for (int i = 0; i < McantProdRuedas; i++) {
+            MtProdRuedas[i] = new cRuedas(Mruedas, MsalRuedas, MmutexRuedas, MsemProdRuedas, MsemSalRuedas, MsemEnsamRuedas);
+            MtProdRuedas[i].start();
+        }
+        
+        //for para producir accesorios RR y M
+        for (int i = 0; i < RRcantProdAccesorios; i++) {
+            RRtProdAccesorios[i] = new cAccesorios(RRaccesorios, RRsalAccesorios, RRmutexAccesorios, RRsemProdAccesorios, RRsemSalAccesorios, RRsemEnsamAccesorios);
+            RRtProdAccesorios[i].start();
+        }
+        
+        for (int i = 0; i < McantProdAccesorios; i++) {
+            MtProdAccesorios[i] = new cAccesorios(Maccesorios, MsalAccesorios, MmutexAccesorios, MsemProdAccesorios, MsemSalAccesorios, MsemEnsamAccesorios);
+            MtProdAccesorios[i].start();
+        }
+        
+        //for para ensamblar los carros RR y M
+        for (int i = 0; i < RRcantProdEnsamblador; i++) {
+            RRtProdEnsamblador[i] = new Ensamblador(RRmutexChasis, RRmutexCarrocerias, RRmutexMotores, RRmutexRuedas, RRmutexAccesorios, RRmutexCarros,
+                    RRsemEnsamChasis, RRsemEnsamCarroceria, RRsemEnsamMotores, RRsemEnsamRuedas, RRsemEnsamAccesorios,
+                    RRsemProdChasis, RRsemProdCarroceria, RRsemProdMotores, RRsemProdRuedas, RRsemProdAccesorios);
+            RRtProdEnsamblador[i].start();
+        }
+        
+        for (int i = 0; i < McantProdEnsamblador; i++) {
+            MtProdEnsamblador[i] = new Ensamblador(MmutexChasis, MmutexCarrocerias, MmutexMotores, MmutexRuedas, MmutexAccesorios, MmutexCarros,
+                    MsemEnsamChasis, MsemEnsamCarroceria, MsemEnsamMotores, MsemEnsamRuedas, MsemEnsamAccesorios,
+                    MsemProdChasis, MsemProdCarroceria, MsemProdMotores, MsemProdRuedas, MsemProdAccesorios);
+            MtProdEnsamblador[i].start();
+        }
+        
+        //gerente RR
+        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
+        grr.start();
+        
+        //gerente M
+        Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT);
+        gm.start();
+        
+        //director RR
+        Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
+        drr.start();
+        
+        //director M
+        Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas);
+        dm.start();
     }
     
 }

@@ -76,33 +76,33 @@ public class Ensamblador extends Thread {
     public void run() {
         while (activo) {
             try {
-                estado = (((int) main.cantChasis > this.semEnsamChasis.availablePermits())
-                        && (int) main.cantCarrocerias > this.semEnsamCarrocerias.availablePermits()
-                        && ((int) main.cantMotores > this.semEnsamMotores.availablePermits())
-                        && ((int) main.cantRuedas > this.semEnsamRuedas.availablePermits()));
+                estado = (((int) main.RRcantChasis > this.semEnsamChasis.availablePermits())
+                        && (int) main.RRcantCarrocerias > this.semEnsamCarrocerias.availablePermits()
+                        && ((int) main.RRcantMotores > this.semEnsamMotores.availablePermits())
+                        && ((int) main.RRcantRuedas > this.semEnsamRuedas.availablePermits()));
 
-                while ((((int) main.cantChasis > this.semEnsamChasis.availablePermits())
-                        && (int) main.cantCarrocerias > this.semEnsamCarrocerias.availablePermits()
-                        && ((int) main.cantMotores > this.semEnsamMotores.availablePermits())
-                        && ((int) main.cantRuedas > this.semEnsamRuedas.availablePermits()))) {
+                while ((((int) main.RRcantChasis > this.semEnsamChasis.availablePermits())
+                        && (int) main.RRcantCarrocerias > this.semEnsamCarrocerias.availablePermits()
+                        && ((int) main.RRcantMotores > this.semEnsamMotores.availablePermits())
+                        && ((int) main.RRcantRuedas > this.semEnsamRuedas.availablePermits()))) {
 
                     Thread.sleep((long) (main.Datos[0] * 1000 / 24));
-                    main.semSalEnsamblador.acquire();
-                    main.salEnsamblador += 25;
-                    main.semSalEnsamblador.release();
+                    main.RRsemSalEnsamblador.acquire();
+                    main.RRsalEnsamblador += 25;
+                    main.RRsemSalEnsamblador.release();
 
-                    estado = (((int) main.cantChasis >= this.semEnsamChasis.availablePermits())
-                            && (int) main.cantCarrocerias >= this.semEnsamCarrocerias.availablePermits()
-                            && ((int) main.cantMotores >= this.semEnsamMotores.availablePermits())
-                            && ((int) main.cantRuedas >= this.semEnsamRuedas.availablePermits()));
+                    estado = (((int) main.RRcantChasis >= this.semEnsamChasis.availablePermits())
+                            && (int) main.RRcantCarrocerias >= this.semEnsamCarrocerias.availablePermits()
+                            && ((int) main.RRcantMotores >= this.semEnsamMotores.availablePermits())
+                            && ((int) main.RRcantRuedas >= this.semEnsamRuedas.availablePermits()));
                 }
 
                 //Se revisa que se tenga la cantidad necesaria de piezas para el ensamblador
                 Thread.sleep((long) this.tEnsam);
-                this.semEnsamChasis.acquire((int) main.cantChasis);
-                this.semEnsamCarrocerias.acquire((int) main.cantCarrocerias);
-                this.semEnsamMotores.acquire((int) main.cantMotores);
-                this.semEnsamRuedas.acquire((int) main.cantRuedas);
+                this.semEnsamChasis.acquire((int) main.RRcantChasis);
+                this.semEnsamCarrocerias.acquire((int) main.RRcantCarrocerias);
+                this.semEnsamMotores.acquire((int) main.RRcantMotores);
+                this.semEnsamRuedas.acquire((int) main.RRcantRuedas);
 
                 this.mutexChasis.acquire();
                 this.mutexCarrocerias.acquire();
@@ -110,19 +110,19 @@ public class Ensamblador extends Thread {
                 this.mutexRuedas.acquire();
                 this.mutexCarros.acquire();
 
-                main.semSalEnsamblador.acquire();
+                main.RRsemSalEnsamblador.acquire();
 
-                main.carrosTotal++; // se suma el carro que salga de ensamblador 
+                main.RRcarrosTotal++; // se suma el carro que salga de ensamblador 
 
                 //Se restan las piezas del almacen que fueron utilizadas en el ensamblador
-                main.aChasis = main.aChasis - (int) main.cantChasis;
-                main.aCarrocerias = main.aCarrocerias - (int) main.cantCarrocerias;
-                main.aMotores = main.aMotores - (int) main.cantMotores;
-                main.aRuedas = main.aRuedas - (int) main.cantRuedas;
+                main.aRRChasis = main.aRRChasis - (int) main.RRcantChasis;
+                main.aRRCarrocerias = main.aRRCarrocerias - (int) main.RRcantCarrocerias;
+                main.aRRMotores = main.aRRMotores - (int) main.RRcantMotores;
+                main.aRRRuedas = main.aRRRuedas - (int) main.RRcantRuedas;
 
-                main.salEnsamblador += ((this.tEnsam / 1000 * 24) * 25);
+                main.RRsalEnsamblador += ((this.tEnsam / 1000 * 24) * 25);
 
-                main.semSalEnsamblador.release();
+                main.RRsemSalEnsamblador.release();
 
                 this.mutexChasis.release();
                 this.mutexCarrocerias.release();
@@ -130,10 +130,10 @@ public class Ensamblador extends Thread {
                 this.mutexRuedas.release();
                 this.mutexCarros.release();
 
-                this.semProdChasis.release((int) main.cantChasis);
-                this.semProdCarrocerias.release((int) main.cantCarrocerias);
-                this.semProdMotores.release((int) main.cantMotores);
-                this.semProdRuedas.release((int) main.cantRuedas);
+                this.semProdChasis.release((int) main.RRcantChasis);
+                this.semProdCarrocerias.release((int) main.RRcantCarrocerias);
+                this.semProdMotores.release((int) main.RRcantMotores);
+                this.semProdRuedas.release((int) main.RRcantRuedas);
 
             } catch (InterruptedException e) {
                 JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);

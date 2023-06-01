@@ -33,7 +33,7 @@ public class cMotor extends Productores {
                 this.mutex.acquire();
                 this.semSalario.acquire();
                 salario += ((tProduccion / 1000) * 20);
-                main.aMotores++;
+                main.aRRMotores++;
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();
