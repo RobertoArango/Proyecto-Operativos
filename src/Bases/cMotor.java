@@ -14,8 +14,8 @@ import main.main;
  */
 public class cMotor extends Productores {
     
-    public cMotor(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
-        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
+    public cMotor(float pDia, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam, String empresa) {
+        super(pDia, mutex, semProduccion, semSalario, semEnsam, empresa);
     }
     
     @Override
@@ -25,15 +25,29 @@ public class cMotor extends Productores {
                 while (this.semProduccion.availablePermits() == 0) {
                     Thread.sleep((long) (main.Datos[0] * 1000 / 24));
                     this.semSalario.acquire();
-                    salario += 20;
+                    
+                    if (empresa == "RR") {
+                        main.RRsalMotores += 20;
+                    } else {
+                        main.MsalMotores += 20;
+                    }
+                    
                     this.semSalario.release();
                 }
                 Thread.sleep((long) this.tProduccion);
                 this.semProduccion.acquire();
                 this.mutex.acquire();
                 this.semSalario.acquire();
-                salario += ((tProduccion / 1000) * 20);
-                main.aRRMotores++;
+                
+                if (empresa == "RR") {
+                    main.RRsalMotores += ((tProduccion / 1000) * 20);
+                    main.aRRMotores++;
+                    System.out.println("Motor RR: " + main.aRRMotores);
+                } else {
+                    main.MsalMotores += ((tProduccion / 1000) * 20);
+                    main.aMMotores++;
+                }
+                
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

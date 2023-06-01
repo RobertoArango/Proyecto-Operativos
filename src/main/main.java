@@ -24,6 +24,8 @@ public class main {
     
     //variable para datos iniciales de la simulacion 
     public static int[] Datos;
+    public static String empresaRR = "RR";
+    public static String empresaM = "M";
     
     //almacen para Rolls Royce
     //la "a" indica que estan en almacen 
@@ -36,6 +38,7 @@ public class main {
     public static volatile boolean tRRDirector = true;
     public static volatile int RRcarros = 0;
     public static volatile int RRcarrosTotal = 0;
+    public static volatile int RRcarrosTotalPlus = 0;
     public static volatile int RRentregas = 0;
     
     //almacen para Maserati
@@ -49,6 +52,7 @@ public class main {
     public static volatile boolean tMDirector = true;
     public static volatile int Mcarros = 0;
     public static volatile int McarrosTotal = 0;
+    public static volatile int McarrosTotalPlus = 0;
     public static volatile int Mentregas = 0;
     
     //cantidad producida por dia Rolls Royce
@@ -163,18 +167,18 @@ public class main {
     
     //cantidad de productores trabajando
     
-    public static volatile cChasis[] RRtProdChasis;
-    public static volatile cChasis[] MtProdChasis;
-    public static volatile cCarroceria[] RRtProdCarroceria;
-    public static volatile cCarroceria[] MtProdCarroceria;
-    public static volatile cMotor[] RRtProdMotor;
-    public static volatile cMotor[] MtProdMotor;
-    public static volatile cRuedas[] RRtProdRuedas;
-    public static volatile cRuedas[] MtProdRuedas;
-    public static volatile cAccesorios[] RRtProdAccesorios;
-    public static volatile cAccesorios[] MtProdAccesorios;
-    public static volatile Ensamblador[] RRtProdEnsamblador;
-    public static volatile Ensamblador[] MtProdEnsamblador;
+    public static volatile cChasis RRtProdChasis[];
+    public static volatile cChasis MtProdChasis[];
+    public static volatile cCarroceria RRtProdCarroceria[];
+    public static volatile cCarroceria MtProdCarroceria[];
+    public static volatile cMotor RRtProdMotor[];
+    public static volatile cMotor MtProdMotor[];
+    public static volatile cRuedas RRtProdRuedas[];
+    public static volatile cRuedas MtProdRuedas[];
+    public static volatile cAccesorios RRtProdAccesorios[];
+    public static volatile cAccesorios MtProdAccesorios[];
+    public static volatile Ensamblador RRtProdEnsamblador[];
+    public static volatile Ensamblador MtProdEnsamblador[];
     
     //variables salarios trabajadores
     
@@ -344,96 +348,115 @@ public class main {
         // TODO code application logic here
         
         RRtProdEnsamblador = new Ensamblador[Datos[12]];
+        RRcantProdEnsamblador = Datos[12];
+        RRsemSalEnsamblador = new Semaphore(1);
         MtProdEnsamblador = new Ensamblador[Datos[25]];
+        McantProdEnsamblador = Datos[25];
+        MsemSalEnsamblador = new Semaphore(1);
         
         //for para producir chasis RR y M
         for (int i = 0; i < RRcantProdChasis; i++) {
-            RRtProdChasis[i] = new cChasis(RRchasis, RRsalChasis, RRmutexChasis, RRsemProdChasis, RRsemSalChasis, RRsemEnsamChasis );
+            RRtProdChasis[i] = new cChasis(RRchasis, RRmutexChasis, RRsemProdChasis, RRsemSalChasis, RRsemEnsamChasis, empresaRR);
             RRtProdChasis[i].start();
-            System.out.println("chasis:" + main.aRRChasis);
         }  
         
         for (int i = 0; i < McantProdChasis; i++) {
-            MtProdChasis[i] = new cChasis(Mchasis, MsalChasis, MmutexChasis, MsemProdChasis, MsemSalChasis, MsemEnsamChasis );
+            MtProdChasis[i] = new cChasis(Mchasis, MmutexChasis, MsemProdChasis, MsemSalChasis, MsemEnsamChasis, empresaM );
             MtProdChasis[i].start();
-            System.out.println("chasis:" + main.aMChasis);
         }  
+         
         
         //for para producir carroceias RR y M
-        for (int i = 0; i < RRcantProdCarroceria; i++) {
-            RRtProdCarroceria[i] = new cCarroceria(RRcarrocerias, RRsalCarroceria, RRmutexCarrocerias, RRsemProdCarroceria, RRsemSalCarroceria, RRsemEnsamCarroceria);
+          for (int i = 0; i < RRcantProdCarroceria; i++) {
+            RRtProdCarroceria[i] = new cCarroceria(RRcarrocerias, RRmutexCarrocerias, RRsemProdCarroceria, RRsemSalCarroceria, RRsemEnsamCarroceria, empresaRR);
             RRtProdCarroceria[i].start();
         }
         
         for (int i = 0; i < McantProdCarroceria; i++) {
-            MtProdCarroceria[i] = new cCarroceria(Mcarrocerias, MsalCarroceria, MmutexCarrocerias, MsemProdCarroceria, MsemSalCarroceria, MsemEnsamCarroceria);
+            MtProdCarroceria[i] = new cCarroceria(Mcarrocerias, MmutexCarrocerias, MsemProdCarroceria, MsemSalCarroceria, MsemEnsamCarroceria, empresaM);
             MtProdCarroceria[i].start();
         }
         
+        
         //for para producir motores RR y M
         for (int i = 0; i < RRcantProdMotores; i++) {
-            RRtProdMotor[i] = new cMotor(RRmotores, RRsalMotores, RRmutexMotores, RRsemProdMotores, RRsemSalMotores, RRsemEnsamMotores);
+            RRtProdMotor[i] = new cMotor(RRmotores, RRmutexMotores, RRsemProdMotores, RRsemSalMotores, RRsemEnsamMotores, empresaRR);
             RRtProdMotor[i].start();
         }
         
         for (int i = 0; i < McantProdMotores; i++) {
-            MtProdMotor[i] = new cMotor(Mmotores, MsalMotores, MmutexMotores, MsemProdMotores, MsemSalMotores, MsemEnsamMotores);
+            MtProdMotor[i] = new cMotor(Mmotores, MmutexMotores, MsemProdMotores, MsemSalMotores, MsemEnsamMotores, empresaM);
             MtProdMotor[i].start();
         }
         
-        
         //for para proudicr ruedas RR y M
         for (int i = 0; i < RRcantProdRuedas; i++) {
-            RRtProdRuedas[i] = new cRuedas(RRruedas, RRsalRuedas, RRmutexRuedas, RRsemProdRuedas, RRsemSalRuedas, RRsemEnsamRuedas);
+            RRtProdRuedas[i] = new cRuedas(RRruedas, RRmutexRuedas, RRsemProdRuedas, RRsemSalRuedas, RRsemEnsamRuedas, empresaRR);
             RRtProdRuedas[i].start();
         }
         
         for (int i = 0; i < McantProdRuedas; i++) {
-            MtProdRuedas[i] = new cRuedas(Mruedas, MsalRuedas, MmutexRuedas, MsemProdRuedas, MsemSalRuedas, MsemEnsamRuedas);
+            MtProdRuedas[i] = new cRuedas(Mruedas, MmutexRuedas, MsemProdRuedas, MsemSalRuedas, MsemEnsamRuedas, empresaM);
             MtProdRuedas[i].start();
         }
         
         //for para producir accesorios RR y M
         for (int i = 0; i < RRcantProdAccesorios; i++) {
-            RRtProdAccesorios[i] = new cAccesorios(RRaccesorios, RRsalAccesorios, RRmutexAccesorios, RRsemProdAccesorios, RRsemSalAccesorios, RRsemEnsamAccesorios);
+            RRtProdAccesorios[i] = new cAccesorios(RRaccesorios, RRmutexAccesorios, RRsemProdAccesorios, RRsemSalAccesorios, RRsemEnsamAccesorios, empresaRR);
             RRtProdAccesorios[i].start();
         }
         
         for (int i = 0; i < McantProdAccesorios; i++) {
-            MtProdAccesorios[i] = new cAccesorios(Maccesorios, MsalAccesorios, MmutexAccesorios, MsemProdAccesorios, MsemSalAccesorios, MsemEnsamAccesorios);
+            MtProdAccesorios[i] = new cAccesorios(Maccesorios, MmutexAccesorios, MsemProdAccesorios, MsemSalAccesorios, MsemEnsamAccesorios, empresaM);
             MtProdAccesorios[i].start();
         }
         
+        
         //for para ensamblar los carros RR y M
         for (int i = 0; i < RRcantProdEnsamblador; i++) {
-            RRtProdEnsamblador[i] = new Ensamblador(RRmutexChasis, RRmutexCarrocerias, RRmutexMotores, RRmutexRuedas, RRmutexAccesorios, RRmutexCarros,
-                    RRsemEnsamChasis, RRsemEnsamCarroceria, RRsemEnsamMotores, RRsemEnsamRuedas, RRsemEnsamAccesorios,
-                    RRsemProdChasis, RRsemProdCarroceria, RRsemProdMotores, RRsemProdRuedas, RRsemProdAccesorios);
+            RRtProdEnsamblador[i] = new Ensamblador(
+                    RRmutexChasis, 
+                    RRmutexCarrocerias, 
+                    RRmutexMotores, 
+                    RRmutexRuedas, 
+                    RRmutexAccesorios, 
+                    RRmutexCarros,
+                    RRsemEnsamChasis, 
+                    RRsemEnsamCarroceria, 
+                    RRsemEnsamMotores, 
+                    RRsemEnsamRuedas, 
+                    RRsemEnsamAccesorios,
+                    RRsemProdChasis, 
+                    RRsemProdCarroceria, 
+                    RRsemProdMotores, 
+                    RRsemProdRuedas, 
+                    RRsemProdAccesorios, 
+                    empresaRR);
             RRtProdEnsamblador[i].start();
         }
         
-        for (int i = 0; i < McantProdEnsamblador; i++) {
-            MtProdEnsamblador[i] = new Ensamblador(MmutexChasis, MmutexCarrocerias, MmutexMotores, MmutexRuedas, MmutexAccesorios, MmutexCarros,
-                    MsemEnsamChasis, MsemEnsamCarroceria, MsemEnsamMotores, MsemEnsamRuedas, MsemEnsamAccesorios,
-                    MsemProdChasis, MsemProdCarroceria, MsemProdMotores, MsemProdRuedas, MsemProdAccesorios);
-            MtProdEnsamblador[i].start();
-        }
+        //for (int i = 0; i < McantProdEnsamblador; i++) {
+        //    MtProdEnsamblador[i] = new Ensamblador(MmutexChasis, MmutexCarrocerias, MmutexMotores, MmutexRuedas, MmutexAccesorios, MmutexCarros,
+        //            MsemEnsamChasis, MsemEnsamCarroceria, MsemEnsamMotores, MsemEnsamRuedas, MsemEnsamAccesorios,
+        //            MsemProdChasis, MsemProdCarroceria, MsemProdMotores, MsemProdRuedas, MsemProdAccesorios, empresaM);
+        //    MtProdEnsamblador[i].start();
+        //}
         
         //gerente RR
-        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
-        grr.start();
+        //Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
+        //grr.start();
         
         //gerente M
-        Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT);
-        gm.start();
+        //Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT);
+        //gm.start();
         
         //director RR
-        Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
-        drr.start();
+        //Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
+        //drr.start();
         
         //director M
-        Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas);
-        dm.start();
+        //Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas);
+        //dm.start();
     }
     
 }

@@ -14,8 +14,8 @@ import main.main;
  */
 public class cCarroceria extends Productores {
     
-    public cCarroceria(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
-        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
+    public cCarroceria(float pDia, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam, String empresa) {
+        super(pDia, mutex, semProduccion, semSalario, semEnsam, empresa);
     }
     
     @Override
@@ -25,15 +25,29 @@ public class cCarroceria extends Productores {
                 while (this.semProduccion.availablePermits() == 0) {
                     Thread.sleep((long) (main.Datos[0] * 1000 / 24));
                     this.semSalario.acquire();
-                    salario += 13;
+                    
+                    if (empresa == "RR") {
+                        main.RRsalCarroceria += 13;
+                    } else {
+                        main.RRsalCarroceria += 13;
+                    }
+                    
                     this.semSalario.release();
                 }
                 Thread.sleep((long) this.tProduccion);
                 this.semProduccion.acquire();
                 this.mutex.acquire();
                 this.semSalario.acquire();
-                salario += ((tProduccion / 1000) * 13);
-                main.aRRCarrocerias++;
+                
+                if (empresa == "RR") {
+                    main.RRsalCarroceria += ((tProduccion / 1000) * 13);
+                    main.aRRCarrocerias++;
+                    System.out.println("Carroceria RR: " + main.aRRCarrocerias);
+                } else {
+                    main.MsalCarroceria += ((tProduccion / 1000) * 13);
+                    main.aMCarrocerias++;
+                }
+                
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

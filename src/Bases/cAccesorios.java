@@ -14,8 +14,8 @@ import main.main;
  */
 public class cAccesorios extends Productores {
     
-    public cAccesorios(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
-        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
+    public cAccesorios(float pDia, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam, String empresa) {
+        super(pDia, mutex, semProduccion, semSalario, semEnsam, empresa);
     }
     
     @Override
@@ -25,15 +25,28 @@ public class cAccesorios extends Productores {
                 while (this.semProduccion.availablePermits() == 0) {
                     Thread.sleep((long) (main.Datos[0] * 1000 / 24));
                     this.semSalario.acquire();
-                    salario += 17;
+                    
+                    if (empresa == "RR") {
+                        main.RRsalAccesorios += 17;
+                    } else {
+                        main.MsalAccesorios += 17;
+                    }
+                    
                     this.semSalario.release();
                 }
                 Thread.sleep((long) this.tProduccion);
                 this.semProduccion.acquire();
                 this.mutex.acquire();
                 this.semSalario.acquire();
-                salario += ((tProduccion / 1000) * 17);
-                main.aRRAccesorios++;
+                
+                if (empresa == "RR") {
+                    main.RRsalAccesorios += ((tProduccion / 1000) * 17);
+                    main.aRRAccesorios++;
+                } else {
+                    main.MsalAccesorios += ((tProduccion / 1000) * 17);
+                    main.aMAccesorios++;
+                }
+                
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

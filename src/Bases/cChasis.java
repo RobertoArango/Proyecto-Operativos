@@ -15,8 +15,8 @@ import main.main;
  */
 public class cChasis extends Productores {
     
-    public cChasis(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam) {
-        super(pDia, salario, mutex, semProduccion, semSalario, semEnsam);
+    public cChasis(float pDia, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam, String empresa) {
+        super(pDia, mutex, semProduccion, semSalario, semEnsam, empresa);
     }
     @Override
     public void run() {
@@ -25,21 +25,38 @@ public class cChasis extends Productores {
                 while (this.semProduccion.availablePermits() == 0) {
                     Thread.sleep((long) (main.Datos[0] * 1000 / 24));
                     this.semSalario.acquire();
-                    salario += 10;
+                    if (empresa == "RR") {
+                        main.RRsalChasis += 10;
+                    } else {
+                        main.MsalChasis += 10;
+                    }
+                    
                     this.semSalario.release();
                 }
                 Thread.sleep((long) this.tProduccion);
+                
                 this.semProduccion.acquire();
                 this.mutex.acquire();
                 this.semSalario.acquire();
-                salario += ((tProduccion / 1000) * 10);
-                main.aRRChasis++;
-                //System.out.println("chasis:" + main.aChasis);
+                
+                if (empresa == "RR") {
+                    main.RRsalChasis += ((tProduccion / 1000) * 13);
+                    main.aRRChasis++;
+                    //System.out.println("Sal RR: " + main.RRsalChasis);
+                    System.out.println("Chasis RR: " + main.aRRChasis);
+                    
+                } else {
+                    main.MsalChasis += ((tProduccion / 1000) * 13);
+                    main.aMChasis++;
+                    //System.out.println("Sal M: " + main.MsalChasis);
+                    //System.out.println("Chasis M: " + main.aMChasis);
+                }
+                
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "error chasis", "ERROR", JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }
         }
