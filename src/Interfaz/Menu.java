@@ -4,10 +4,13 @@
  */
 package Interfaz;
 
+import Bases.lectorTXT;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import main.main;
 
 /**
  *
@@ -325,22 +328,47 @@ public class Menu extends javax.swing.JFrame {
 
         actProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdChasisMase.setText("↑");
+        actProdChasisMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdChasisMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         actProdCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdCarroceriasMase.setText("↑");
+        actProdCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdCarroceriasMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         actProdMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdMotoresMase.setText("↑");
+        actProdMotoresMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdMotoresMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, -1, -1));
 
         actProdRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdRuedasMase.setText("↑");
+        actProdRuedasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdRuedasMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
         actProdAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdAccesoriosMase.setText("↑");
+        actProdAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdAccesoriosMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 190, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -350,6 +378,11 @@ public class Menu extends javax.swing.JFrame {
 
         actEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actEnsamMase.setText("↑");
+        actEnsamMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actEnsamMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         inicialEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -372,6 +405,11 @@ public class Menu extends javax.swing.JFrame {
 
         actTiempoMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actTiempoMase.setText("↑");
+        actTiempoMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actTiempoMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actTiempoMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, -1));
 
         inicialTiempoMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -392,6 +430,11 @@ public class Menu extends javax.swing.JFrame {
 
         actDeadlineMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actDeadlineMase.setText("↑");
+        actDeadlineMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actDeadlineMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actDeadlineMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
 
         jLabel50.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -401,6 +444,11 @@ public class Menu extends javax.swing.JFrame {
 
         actMaxChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actMaxChasisMase.setText("↑");
+        actMaxChasisMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMaxChasisMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actMaxChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
 
         inicialMaxChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -418,6 +466,11 @@ public class Menu extends javax.swing.JFrame {
 
         actMaxCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actMaxCarroceriasMase.setText("↑");
+        actMaxCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMaxCarroceriasMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actMaxCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
 
         inicialMaxCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -435,6 +488,11 @@ public class Menu extends javax.swing.JFrame {
 
         actMaxMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actMaxMotoresMase.setText("↑");
+        actMaxMotoresMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMaxMotoresMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actMaxMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, -1, -1));
 
         inicialMaxMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -452,6 +510,11 @@ public class Menu extends javax.swing.JFrame {
 
         actMaxRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actMaxRuedasMase.setText("↑");
+        actMaxRuedasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMaxRuedasMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actMaxRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
 
         inicialMaxRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -477,6 +540,11 @@ public class Menu extends javax.swing.JFrame {
 
         actMaxAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actMaxAccesoriosMase.setText("↑");
+        actMaxAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMaxAccesoriosMaseActionPerformed(evt);
+            }
+        });
         dataMaserati.add(actMaxAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 560, -1, -1));
 
         jLabel55.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -734,6 +802,11 @@ public class Menu extends javax.swing.JFrame {
 
         actProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdChasisRR.setText("↑");
+        actProdChasisRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actProdChasisRRActionPerformed(evt);
+            }
+        });
         dataRolllsRoyce.add(actProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         inicialProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1306,6 +1379,205 @@ public class Menu extends javax.swing.JFrame {
     private void inicialMaxRuedasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxRuedasRRActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inicialMaxRuedasRRActionPerformed
+
+    private void actProdChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdChasisMaseActionPerformed
+        
+        if(inicialProdChasisMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialProdChasisMaseInput = inicialProdChasisMase.getText();
+            int inicialProdChasisMaseInt;
+            inicialProdChasisMaseInt = Integer.parseInt(inicialProdChasisMaseInput);
+            main.Datos[20] = inicialProdChasisMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actProdChasisMaseActionPerformed
+
+    private void actProdCarroceriasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdCarroceriasMaseActionPerformed
+        
+        if(inicialProdCarroceriasMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialProdCarroceriasMaseInput = inicialProdCarroceriasMase.getText();
+            int inicialProdCarroceriasMaseInt;
+            inicialProdCarroceriasMaseInt = Integer.parseInt(inicialProdCarroceriasMaseInput);
+            main.Datos[21] = inicialProdCarroceriasMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actProdCarroceriasMaseActionPerformed
+
+    private void actProdMotoresMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdMotoresMaseActionPerformed
+        
+        if(inicialProdMotoresMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialProdMotoresMaseInput = inicialProdMotoresMase.getText();
+            int inicialProdMotoresMaseInt;
+            inicialProdMotoresMaseInt = Integer.parseInt(inicialProdMotoresMaseInput);
+            main.Datos[22] = inicialProdMotoresMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actProdMotoresMaseActionPerformed
+
+    private void actProdRuedasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdRuedasMaseActionPerformed
+        
+        if(inicialProdRuedasMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialProdRuedasMaseInput = inicialProdRuedasMase.getText();
+            int inicialProdRuedasMaseInt;
+            inicialProdRuedasMaseInt = Integer.parseInt(inicialProdRuedasMaseInput);
+            main.Datos[23] = inicialProdRuedasMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actProdRuedasMaseActionPerformed
+
+    private void actProdAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdAccesoriosMaseActionPerformed
+        
+        if(inicialProdAccesoriosMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialProdAccesoriosMaseInput = inicialProdAccesoriosMase.getText();
+            int inicialProdAccesoriosMaseInt;
+            inicialProdAccesoriosMaseInt = Integer.parseInt(inicialProdAccesoriosMaseInput);
+            main.Datos[24] = inicialProdAccesoriosMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actProdAccesoriosMaseActionPerformed
+
+    private void actEnsamMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actEnsamMaseActionPerformed
+        
+        if(inicialEnsamMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialEnsamMaseInput = inicialEnsamMase.getText();
+            int inicialEnsamMaseInt;
+            inicialEnsamMaseInt = Integer.parseInt(inicialEnsamMaseInput);
+            main.Datos[25] = inicialEnsamMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actEnsamMaseActionPerformed
+
+    private void actMaxChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMaxChasisMaseActionPerformed
+
+        if(inicialMaxChasisMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialMaxChasisMaseInput = inicialMaxChasisMase.getText();
+            int inicialMaxChasisMaseInt;
+            inicialMaxChasisMaseInt = Integer.parseInt(inicialMaxChasisMaseInput);
+            main.Datos[15] = inicialMaxChasisMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actMaxChasisMaseActionPerformed
+
+    private void actMaxCarroceriasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMaxCarroceriasMaseActionPerformed
+        
+        if(inicialMaxCarroceriasMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialMaxCarroceriasMaseInput = inicialMaxCarroceriasMase.getText();
+            int inicialMaxCarroceriasMaseInt;
+            inicialMaxCarroceriasMaseInt = Integer.parseInt(inicialMaxCarroceriasMaseInput);
+            main.Datos[16] = inicialMaxCarroceriasMaseInt;
+            lectorTXT.escribir();
+        }
+               
+    }//GEN-LAST:event_actMaxCarroceriasMaseActionPerformed
+
+    private void actMaxMotoresMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMaxMotoresMaseActionPerformed
+        
+        if(inicialMaxMotoresMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialMaxMotoresMaseInput = inicialMaxMotoresMase.getText();
+            int inicialMaxMotoresMaseInt;
+            inicialMaxMotoresMaseInt = Integer.parseInt(inicialMaxMotoresMaseInput);
+            main.Datos[17] = inicialMaxMotoresMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actMaxMotoresMaseActionPerformed
+
+    private void actMaxRuedasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMaxRuedasMaseActionPerformed
+        
+        if(inicialMaxRuedasMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialMaxRuedasMaseInput = inicialMaxRuedasMase.getText();
+            int inicialMaxRuedasMaseInt;
+            inicialMaxRuedasMaseInt = Integer.parseInt(inicialMaxRuedasMaseInput);
+            main.Datos[18] = inicialMaxRuedasMaseInt;
+            lectorTXT.escribir();
+        }        
+       
+    }//GEN-LAST:event_actMaxRuedasMaseActionPerformed
+
+    private void actMaxAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMaxAccesoriosMaseActionPerformed
+        
+        if(inicialMaxAccesoriosMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialMaxAccesoriosMaseInput = inicialMaxAccesoriosMase.getText();
+            int inicialMaxAccesoriosMaseInt;
+            inicialMaxAccesoriosMaseInt = Integer.parseInt(inicialMaxAccesoriosMaseInput);
+            main.Datos[19] = inicialMaxAccesoriosMaseInt;
+            lectorTXT.escribir();
+        } 
+        
+    }//GEN-LAST:event_actMaxAccesoriosMaseActionPerformed
+
+    private void actTiempoMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actTiempoMaseActionPerformed
+        
+        if(inicialTiempoMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialTiempoMaseInput = inicialTiempoMase.getText();
+            int inicialTiempoMaseInt;
+            inicialTiempoMaseInt = Integer.parseInt(inicialTiempoMaseInput);
+            main.Datos[13] = inicialTiempoMaseInt;
+            lectorTXT.escribir();
+        } 
+        
+    }//GEN-LAST:event_actTiempoMaseActionPerformed
+
+    private void actDeadlineMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actDeadlineMaseActionPerformed
+        
+        if(inicialDeadlineMase.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "Asegurese que el campo de este vacio");
+        }
+        else{
+            String inicialDeadlineMaseInput = inicialDeadlineMase.getText();
+            int inicialDeadlineMaseInt;
+            inicialDeadlineMaseInt = Integer.parseInt(inicialDeadlineMaseInput);
+            main.Datos[14] = inicialDeadlineMaseInt;
+            lectorTXT.escribir();
+        }
+        
+    }//GEN-LAST:event_actDeadlineMaseActionPerformed
+
+    private void actProdChasisRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actProdChasisRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actProdChasisRRActionPerformed
 
     /**
      * @param args the command line arguments
