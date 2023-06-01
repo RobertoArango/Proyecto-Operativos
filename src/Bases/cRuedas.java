@@ -42,10 +42,12 @@ public class cRuedas extends Productores {
                 if (empresa == "RR") {
                     main.RRsalRuedas += ((tProduccion / 1000) * 8);
                     main.aRRRuedas++;
-                    System.out.println("Ruedas RR: " + main.aRRRuedas);
+                    //System.out.println("Ruedas RR: " + main.aRRRuedas);
                 } else {
                     main.MsalRuedas += ((tProduccion / 1000) * 8);
                     main.aMRuedas++;
+                    //System.out.println("Ruedas M: " + main.aMRuedas);
+
                 }
                 
                 this.mutex.release();

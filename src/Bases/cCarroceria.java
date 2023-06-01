@@ -42,10 +42,11 @@ public class cCarroceria extends Productores {
                 if (empresa == "RR") {
                     main.RRsalCarroceria += ((tProduccion / 1000) * 13);
                     main.aRRCarrocerias++;
-                    System.out.println("Carroceria RR: " + main.aRRCarrocerias);
+                    //System.out.println("Carroceria RR: " + main.aRRCarrocerias);
                 } else {
                     main.MsalCarroceria += ((tProduccion / 1000) * 13);
                     main.aMCarrocerias++;
+                    //System.out.println("Carrocerias M: " + main.aMCarrocerias);
                 }
                 
                 this.mutex.release();

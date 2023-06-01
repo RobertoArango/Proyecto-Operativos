@@ -42,10 +42,11 @@ public class cMotor extends Productores {
                 if (empresa == "RR") {
                     main.RRsalMotores += ((tProduccion / 1000) * 20);
                     main.aRRMotores++;
-                    System.out.println("Motor RR: " + main.aRRMotores);
+                    //System.out.println("Motor RR: " + main.aRRMotores);
                 } else {
                     main.MsalMotores += ((tProduccion / 1000) * 20);
                     main.aMMotores++;
+                    //System.out.println("Motores M: " + main.aMMotores);
                 }
                 
                 this.mutex.release();

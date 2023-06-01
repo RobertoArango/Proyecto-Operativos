@@ -227,7 +227,7 @@ public class main {
         
         //valores por chasis Maserati
         
-        Mchasis = ((float)1/3); //lo que se produce por dia
+        Mchasis = (float)0.25; //lo que se produce por dia
         McantChasis = 1; //lo que se requiere para fabricar un carro
         McantProdChasis = Datos[20];
         MtProdChasis = new cChasis[Datos[20]]; //productores en el sector chasis pasado como parametro a la clase
@@ -249,7 +249,7 @@ public class main {
         
         //valores por carroceria Maserati
         
-        Mcarrocerias = ((float)1/3); //lo que se produce por dia
+        Mcarrocerias = (float)0.25; //lo que se produce por dia
         McantCarrocerias = 1; //lo que se requiere para fabricar un carro
         McantProdCarroceria = Datos[16];
         MtProdCarroceria = new cCarroceria[Datos[16]]; //productores en el sector chasis pasado como parametro a la clase
@@ -271,7 +271,7 @@ public class main {
         
         //valores por motores Maserati
         
-        Mmotores = 2;
+        Mmotores = 1;
         McantMotores = 2;
         McantProdMotores = Datos[17];
         MtProdMotor = new cMotor[Datos[17]];
@@ -293,7 +293,7 @@ public class main {
         
         //valores por ruedas Maserati
         
-        Mruedas = 3;
+        Mruedas = 5;
         McantRuedas = 4;
         McantProdRuedas = Datos[18];
         MtProdRuedas = new cRuedas[Datos[18]];
@@ -315,7 +315,7 @@ public class main {
         
         //valores por accesorios Maserati
         
-        Maccesorios = ((float)1/3);
+        Maccesorios = (float)0.5;
         McantAccesorios = 3;
         McantProdAccesorios = Datos[19];
         MtProdAccesorios = new cAccesorios[Datos[19]];
@@ -435,12 +435,27 @@ public class main {
             RRtProdEnsamblador[i].start();
         }
         
-        //for (int i = 0; i < McantProdEnsamblador; i++) {
-        //    MtProdEnsamblador[i] = new Ensamblador(MmutexChasis, MmutexCarrocerias, MmutexMotores, MmutexRuedas, MmutexAccesorios, MmutexCarros,
-        //            MsemEnsamChasis, MsemEnsamCarroceria, MsemEnsamMotores, MsemEnsamRuedas, MsemEnsamAccesorios,
-        //            MsemProdChasis, MsemProdCarroceria, MsemProdMotores, MsemProdRuedas, MsemProdAccesorios, empresaM);
-        //    MtProdEnsamblador[i].start();
-        //}
+        for (int i = 0; i < McantProdEnsamblador; i++) {
+            MtProdEnsamblador[i] = new Ensamblador(
+                    MmutexChasis, 
+                    MmutexCarrocerias, 
+                    MmutexMotores, 
+                    MmutexRuedas, 
+                    MmutexAccesorios, 
+                    MmutexCarros,
+                    MsemEnsamChasis, 
+                    MsemEnsamCarroceria, 
+                    MsemEnsamMotores, 
+                    MsemEnsamRuedas, 
+                    MsemEnsamAccesorios,
+                    MsemProdChasis, 
+                    MsemProdCarroceria, 
+                    MsemProdMotores, 
+                    MsemProdRuedas, 
+                    MsemProdAccesorios, 
+                    empresaM);
+            MtProdEnsamblador[i].start();
+        }
         
         //gerente RR
         //Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);

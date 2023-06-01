@@ -40,16 +40,16 @@ public class cChasis extends Productores {
                 this.semSalario.acquire();
                 
                 if (empresa == "RR") {
-                    main.RRsalChasis += ((tProduccion / 1000) * 13);
+                    main.RRsalChasis += ((tProduccion / 1000) * 10);
                     main.aRRChasis++;
                     //System.out.println("Sal RR: " + main.RRsalChasis);
                     System.out.println("Chasis RR: " + main.aRRChasis);
                     
                 } else {
-                    main.MsalChasis += ((tProduccion / 1000) * 13);
+                    main.MsalChasis += ((tProduccion / 1000) * 10);
                     main.aMChasis++;
                     //System.out.println("Sal M: " + main.MsalChasis);
-                    //System.out.println("Chasis M: " + main.aMChasis);
+                    System.out.println("Chasis M: " + main.aMChasis);
                 }
                 
                 this.mutex.release();
