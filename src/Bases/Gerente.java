@@ -33,7 +33,7 @@ public class Gerente extends Thread {
         while(true) { 
             try {
                 while(horasTrabajo <= (float) (main.Datos[0])) {
-                    System.out.println(diaEntrega);
+                    //System.out.println(diaEntrega);
                     //las primeras 16 horas que varia entre trabajar y ver Formula 1
                     //if (horasDia <= (float) main.Datos[0]/16){
                     
@@ -80,7 +80,7 @@ public class Gerente extends Thread {
                 
                 this.mutex.acquire();
                 this.diaEntrega--;
-                System.out.println(diaEntrega);
+                //System.out.println(diaEntrega);
                 horasTrabajo = 0;
                 this.mutex.release();
             } catch (Exception e) {

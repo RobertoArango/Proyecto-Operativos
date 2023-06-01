@@ -46,18 +46,18 @@ public class Director extends Thread {
                     main.tDirector = true;
                     this.mutexTrabajando.release();
                     if (main.tGerente = false){
-                        System.out.println(main.tGerente);
+                        //System.out.println(main.tGerente);
                         main.semSalGerente.acquire();
                         main.salGerente -= 50;
                         main.semSalGerente.release();
                     }   
                 } else {
-                    System.out.println("entregando");
+                    //System.out.println("entregando");
                     Gerente.diaEntrega = main.Datos[1];
                     this.mutex.release();
                     this.mutexEntregas.acquire();
                     main.entregas++;
-                    System.out.println(main.entregas);
+                    //System.out.println(main.entregas);
                     this.mutexEntregas.release();
                     this.mutexTrabajando.acquire();
                     main.tDirector = false;

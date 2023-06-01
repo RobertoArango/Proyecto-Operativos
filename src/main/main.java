@@ -139,7 +139,7 @@ public class main {
         cantProdChasis = Datos[7];
         tProdChasis = new cChasis[Datos[7]]; //productores en el sector chasis pasado como parametro a la clase
         semSalChasis = new Semaphore(1);
-        semProdChasis = new Semaphore(30);//semaforo para el limite maximo de chasis en almacen
+        semProdChasis = new Semaphore(Datos[2]);//semaforo para el limite maximo de chasis en almacen
         mutexChasis = new Semaphore(1);
         semEnsamChasis = new Semaphore(0);
         
@@ -205,7 +205,6 @@ public class main {
         for (int i = 0; i < cantProdChasis; i++) {
             tProdChasis[i] = new cChasis(chasis, salChasis, mutexChasis, semProdChasis, semSalChasis, semEnsamChasis );
             tProdChasis[i].start();
-            System.out.println("chasis:" + main.aChasis);
         }  
         
         for (int i = 0; i < cantProdCarroceria; i++) {

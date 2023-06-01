@@ -16,6 +16,8 @@ public abstract class Productores extends Thread{
     float pDia; //produccion por dia
     float salario;
     boolean activo;
+    float a;
+    float b;
     Semaphore mutex;
     Semaphore semProduccion; 
     Semaphore semSalario;
@@ -23,14 +25,15 @@ public abstract class Productores extends Thread{
        
     public Productores(float pDia, float salario, Semaphore mutex, Semaphore semProduccion, Semaphore semSalario, Semaphore semEnsam ) {
         
-        this.tProduccion = (float)main.Datos[0]/this.pDia*1000;
         this.pDia = pDia;
+        this.tProduccion = (float)main.Datos[0]/this.pDia*1000;
         this.salario = salario;
         this.mutex = mutex;
         this.semProduccion = semProduccion;
         this.semSalario = semSalario;
         this.semEnsam = semEnsam;
         this.activo = true;
+        
         
     }
     public void setActivo(boolean activo) {
