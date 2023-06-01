@@ -33,7 +33,7 @@ public class cAccesorios extends Productores {
                 this.mutex.acquire();
                 this.semSalario.acquire();
                 salario += ((tProduccion / 1000) * 17);
-                main.aAccesorios++;
+                main.aRRAccesorios++;
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

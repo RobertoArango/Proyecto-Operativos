@@ -33,7 +33,7 @@ public class cRuedas extends Productores {
                 this.mutex.acquire();
                 this.semSalario.acquire();
                 salario += ((tProduccion / 1000) * 8);
-                main.aRuedas++;
+                main.aRRRuedas++;
                 this.mutex.release();
                 this.semSalario.release();
                 this.semEnsam.release();

@@ -33,7 +33,7 @@ public class cChasis extends Productores {
                 this.mutex.acquire();
                 this.semSalario.acquire();
                 salario += ((tProduccion / 1000) * 10);
-                main.aChasis++;
+                main.aRRChasis++;
                 //System.out.println("chasis:" + main.aChasis);
                 this.mutex.release();
                 this.semSalario.release();

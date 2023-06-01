@@ -33,14 +33,14 @@ public class Gerente extends Thread {
         while(true) { 
             try {
                 while(horasTrabajo <= (float) (main.Datos[0])) {
-                    System.out.println(diaEntrega);
+                    //System.out.println(diaEntrega);
                     //las primeras 16 horas que varia entre trabajar y ver Formula 1
                     //if (horasDia <= (float) main.Datos[0]/16){
                     
                     //trabajando
                     //System.out.println(horasDia + "trabajo");
                     this.mutexTrabajando.acquire();
-                    main.tGerente = true;
+                    main.tRRGerente = true;
                     this.mutexTrabajando.release();
                     Thread.sleep((long) (intervaloVT));
                     horasTrabajo += (intervaloVT / 1000);
@@ -49,7 +49,7 @@ public class Gerente extends Thread {
                     //viendo Formula 1
                     //System.out.println(horasDia + "viendo");
                     this.mutexTrabajando.acquire();
-                    main.tGerente = false;
+                    main.tRRGerente = false;
                     this.mutexTrabajando.release();
                     Thread.sleep((long) (intervaloVT));
                     horasTrabajo += (intervaloVT / 1000);
@@ -61,7 +61,7 @@ public class Gerente extends Thread {
                         //System.out.println(horasDia + "potente");
                         
                         this.mutexTrabajando.acquire();
-                        main.tGerente = true;
+                        main.tRRGerente = true;
                         this.mutexTrabajando.release();
                         Thread.sleep((long)(intervaloVT));
                         horasTrabajo += (intervaloVT/1000);
@@ -71,16 +71,16 @@ public class Gerente extends Thread {
                     if (horasDia >= ((float) main.Datos[0]) / 24) {
                         //System.out.println(horasDia + "reinicio");
 
-                        main.semSalGerente.acquire();
-                        main.salGerente += 20;
-                        main.semSalGerente.release();
+                        main.RRsemSalGerente.acquire();
+                        main.RRsalGerente += 20;
+                        main.RRsemSalGerente.release();
                         horasDia = 0;
                     }
                 }
                 
                 this.mutex.acquire();
                 this.diaEntrega--;
-                System.out.println(diaEntrega);
+                //System.out.println(diaEntrega);
                 horasTrabajo = 0;
                 this.mutex.release();
             } catch (Exception e) {
