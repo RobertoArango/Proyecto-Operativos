@@ -251,10 +251,10 @@ public class main {
         
         Mcarrocerias = (float)0.25; //lo que se produce por dia
         McantCarrocerias = 1; //lo que se requiere para fabricar un carro
-        McantProdCarroceria = Datos[16];
-        MtProdCarroceria = new cCarroceria[Datos[16]]; //productores en el sector chasis pasado como parametro a la clase
+        McantProdCarroceria = Datos[21];
+        MtProdCarroceria = new cCarroceria[Datos[21]]; //productores en el sector chasis pasado como parametro a la clase
         MsemSalCarroceria = new Semaphore(1);
-        MsemProdCarroceria = new Semaphore(Datos[21]); //semaforo para el limite maximo de chasis en almacen
+        MsemProdCarroceria = new Semaphore(Datos[16]); //semaforo para el limite maximo de chasis en almacen
         MmutexCarrocerias = new Semaphore (1);
         MsemEnsamCarroceria = new Semaphore(0);
         
@@ -273,10 +273,10 @@ public class main {
         
         Mmotores = 1;
         McantMotores = 2;
-        McantProdMotores = Datos[17];
-        MtProdMotor = new cMotor[Datos[17]];
+        McantProdMotores = Datos[22];
+        MtProdMotor = new cMotor[Datos[22]];
         MsemSalMotores = new Semaphore(1);
-        MsemProdMotores = new Semaphore(Datos[22]);
+        MsemProdMotores = new Semaphore(Datos[17]);
         MmutexMotores = new Semaphore (1);
         MsemEnsamMotores = new Semaphore(0);
         
@@ -295,10 +295,10 @@ public class main {
         
         Mruedas = 5;
         McantRuedas = 4;
-        McantProdRuedas = Datos[18];
-        MtProdRuedas = new cRuedas[Datos[18]];
+        McantProdRuedas = Datos[23];
+        MtProdRuedas = new cRuedas[Datos[23]];
         MsemSalRuedas = new Semaphore(1);
-        MsemProdRuedas = new Semaphore(Datos[23]);
+        MsemProdRuedas = new Semaphore(Datos[18]);
         MmutexRuedas = new Semaphore (1);
         MsemEnsamRuedas = new Semaphore(0);
         
@@ -317,10 +317,10 @@ public class main {
         
         Maccesorios = (float)0.5;
         McantAccesorios = 3;
-        McantProdAccesorios = Datos[19];
-        MtProdAccesorios = new cAccesorios[Datos[19]];
+        McantProdAccesorios = Datos[24];
+        MtProdAccesorios = new cAccesorios[Datos[24]];
         MsemSalAccesorios = new Semaphore(1);
-        MsemProdAccesorios = new Semaphore (Datos[24]);
+        MsemProdAccesorios = new Semaphore (Datos[19]);
         MmutexAccesorios = new Semaphore (1);
         MsemEnsamAccesorios = new Semaphore(0);
          
