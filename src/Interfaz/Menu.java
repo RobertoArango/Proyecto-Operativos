@@ -36,6 +36,8 @@ public class Menu extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Inicio = new javax.swing.JPanel();
+        iniciar = new javax.swing.JButton();
+        jLabel62 = new javax.swing.JLabel();
         dataMaserati = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -63,6 +65,22 @@ public class Menu extends javax.swing.JFrame {
         inicialTiempoMase = new javax.swing.JTextField();
         inicialDeadlineMase = new javax.swing.JTextField();
         actDeadlineMase = new javax.swing.JButton();
+        jLabel50 = new javax.swing.JLabel();
+        actMaxChasisMase = new javax.swing.JButton();
+        inicialMaxChasisMase = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        actMaxCarroceriasMase = new javax.swing.JButton();
+        inicialMaxCarroceriasMase = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        actMaxMotoresMase = new javax.swing.JButton();
+        inicialMaxMotoresMase = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        actMaxRuedasMase = new javax.swing.JButton();
+        inicialMaxRuedasMase = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        inicialMaxAccesoriosMase = new javax.swing.JTextField();
+        actMaxAccesoriosMase = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
         BG_dMase = new javax.swing.JLabel();
         Maserati = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -110,7 +128,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         carrosAccMase = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
-        iniciarMase = new javax.swing.JButton();
         zBG_Mase = new javax.swing.JLabel();
         dataRolllsRoyce = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -139,6 +156,22 @@ public class Menu extends javax.swing.JFrame {
         jLabel48 = new javax.swing.JLabel();
         inicialDeadlineRR = new javax.swing.JTextField();
         actDeadlineRR = new javax.swing.JButton();
+        inicialMaxAccesoriosRR = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        actMaxChasisRR = new javax.swing.JButton();
+        inicialMaxChasisRR = new javax.swing.JTextField();
+        jLabel58 = new javax.swing.JLabel();
+        actMaxCarroceriaRR = new javax.swing.JButton();
+        inicialMaxCarroceriasRR = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        actMaxMotoresRR = new javax.swing.JButton();
+        inicialMaxMotoresRR = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        actMaxRuedasRR = new javax.swing.JButton();
+        inicialMaxRuedasRR = new javax.swing.JTextField();
+        actMaxAccesoriosRR = new javax.swing.JButton();
+        jLabel61 = new javax.swing.JLabel();
         BG_dRR = new javax.swing.JLabel();
         RollsRoyce = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -185,7 +218,6 @@ public class Menu extends javax.swing.JFrame {
         ganaciasRR = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         carrosAccRR = new javax.swing.JLabel();
-        iniciarRR = new javax.swing.JButton();
         BG_RR = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,6 +233,14 @@ public class Menu extends javax.swing.JFrame {
         Inicio.setMinimumSize(new java.awt.Dimension(1280, 720));
         Inicio.setPreferredSize(new java.awt.Dimension(1280, 720));
         Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        iniciar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        iniciar.setText("Iniciar simulacion");
+        Inicio.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
+
+        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG RR.png"))); // NOI18N
+        Inicio.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 690));
+
         jTabbedPane1.addTab("Inicio", Inicio);
 
         dataMaserati.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -216,32 +256,32 @@ public class Menu extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Chasis");
-        dataMaserati.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 80, 50));
+        dataMaserati.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 80, 50));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Carrocerias");
-        dataMaserati.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 120, 50));
+        dataMaserati.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 120, 50));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Motores");
-        dataMaserati.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 50));
+        dataMaserati.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 90, 50));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Ruedas");
-        dataMaserati.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, 80, 50));
+        dataMaserati.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 80, 50));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Accesorios");
-        dataMaserati.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, 110, 50));
+        dataMaserati.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 130, 110, 50));
 
         jLabel34.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Productores iniciales por sector");
-        dataMaserati.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jLabel34.setText("Piezas maximas en almacen");
+        dataMaserati.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
 
         inicialProdAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +289,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdAccesoriosMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, 110, -1));
+        dataMaserati.add(inicialProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 190, 110, -1));
 
         inicialProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdChasisMase.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +297,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdChasisMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, -1));
+        dataMaserati.add(inicialProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 110, -1));
 
         inicialProdMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdMotoresMase.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +305,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdMotoresMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 110, -1));
+        dataMaserati.add(inicialProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 110, -1));
 
         inicialProdCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +313,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdCarroceriasMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 110, -1));
+        dataMaserati.add(inicialProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 110, -1));
 
         inicialProdRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdRuedasMase.addActionListener(new java.awt.event.ActionListener() {
@@ -281,36 +321,36 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdRuedasMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 110, -1));
+        dataMaserati.add(inicialProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, 110, -1));
 
         actProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdChasisMase.setText("↑");
-        dataMaserati.add(actProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        dataMaserati.add(actProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         actProdCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdCarroceriasMase.setText("↑");
-        dataMaserati.add(actProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        dataMaserati.add(actProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         actProdMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdMotoresMase.setText("↑");
-        dataMaserati.add(actProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
+        dataMaserati.add(actProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, -1, -1));
 
         actProdRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdRuedasMase.setText("↑");
-        dataMaserati.add(actProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, -1, -1));
+        dataMaserati.add(actProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
         actProdAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdAccesoriosMase.setText("↑");
-        dataMaserati.add(actProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 250, -1, -1));
+        dataMaserati.add(actProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 190, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Ensambladores iniciales ");
-        dataMaserati.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
+        dataMaserati.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
         actEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actEnsamMase.setText("↑");
-        dataMaserati.add(actEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
+        dataMaserati.add(actEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         inicialEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialEnsamMase.addActionListener(new java.awt.event.ActionListener() {
@@ -318,21 +358,21 @@ public class Menu extends javax.swing.JFrame {
                 inicialEnsamMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 110, -1));
+        dataMaserati.add(inicialEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 110, -1));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Deadline");
-        dataMaserati.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 380, -1, -1));
+        dataMaserati.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 280, -1, -1));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("Tiempo dias en segundos");
-        dataMaserati.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        dataMaserati.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
 
         actTiempoMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actTiempoMase.setText("↑");
-        dataMaserati.add(actTiempoMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        dataMaserati.add(actTiempoMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, -1));
 
         inicialTiempoMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialTiempoMase.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +380,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialTiempoMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialTiempoMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 110, -1));
+        dataMaserati.add(inicialTiempoMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 110, -1));
 
         inicialDeadlineMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialDeadlineMase.addActionListener(new java.awt.event.ActionListener() {
@@ -348,11 +388,101 @@ public class Menu extends javax.swing.JFrame {
                 inicialDeadlineMaseActionPerformed(evt);
             }
         });
-        dataMaserati.add(inicialDeadlineMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 460, 110, -1));
+        dataMaserati.add(inicialDeadlineMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 360, 110, -1));
 
         actDeadlineMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actDeadlineMase.setText("↑");
-        dataMaserati.add(actDeadlineMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, -1, -1));
+        dataMaserati.add(actDeadlineMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setText("Productores iniciales por sector");
+        dataMaserati.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        actMaxChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxChasisMase.setText("↑");
+        dataMaserati.add(actMaxChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
+
+        inicialMaxChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxChasisMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxChasisMaseActionPerformed(evt);
+            }
+        });
+        dataMaserati.add(inicialMaxChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 110, -1));
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("Chasis");
+        dataMaserati.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 80, 50));
+
+        actMaxCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxCarroceriasMase.setText("↑");
+        dataMaserati.add(actMaxCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+
+        inicialMaxCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxCarroceriasMaseActionPerformed(evt);
+            }
+        });
+        dataMaserati.add(inicialMaxCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 110, -1));
+
+        jLabel52.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setText("Carrocerias");
+        dataMaserati.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 120, 50));
+
+        actMaxMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxMotoresMase.setText("↑");
+        dataMaserati.add(actMaxMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, -1, -1));
+
+        inicialMaxMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxMotoresMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxMotoresMaseActionPerformed(evt);
+            }
+        });
+        dataMaserati.add(inicialMaxMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 110, -1));
+
+        jLabel53.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel53.setText("Motores");
+        dataMaserati.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 90, 50));
+
+        actMaxRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxRuedasMase.setText("↑");
+        dataMaserati.add(actMaxRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
+
+        inicialMaxRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxRuedasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxRuedasMaseActionPerformed(evt);
+            }
+        });
+        dataMaserati.add(inicialMaxRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, 110, -1));
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setText("Ruedas");
+        dataMaserati.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 500, 80, 50));
+
+        inicialMaxAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxAccesoriosMaseActionPerformed(evt);
+            }
+        });
+        dataMaserati.add(inicialMaxAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 560, 110, -1));
+
+        actMaxAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxAccesoriosMase.setText("↑");
+        dataMaserati.add(actMaxAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 560, -1, -1));
+
+        jLabel55.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel55.setText("Accesorios");
+        dataMaserati.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 110, 50));
 
         BG_dMase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG mase.png"))); // NOI18N
         dataMaserati.add(BG_dMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 690));
@@ -577,15 +707,6 @@ public class Menu extends javax.swing.JFrame {
         Maserati.add(carrosAccMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 40, 50));
         Maserati.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 130));
 
-        iniciarMase.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        iniciarMase.setText("Iniciar simulacion");
-        iniciarMase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iniciarMaseActionPerformed(evt);
-            }
-        });
-        Maserati.add(iniciarMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
-
         zBG_Mase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG mase.png"))); // NOI18N
         Maserati.add(zBG_Mase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -604,16 +725,16 @@ public class Menu extends javax.swing.JFrame {
         jLabel40.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Productores iniciales por sector");
-        dataRolllsRoyce.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        dataRolllsRoyce.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         jLabel41.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("Chasis");
-        dataRolllsRoyce.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 80, 50));
+        dataRolllsRoyce.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 80, 50));
 
         actProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdChasisRR.setText("↑");
-        dataRolllsRoyce.add(actProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        dataRolllsRoyce.add(actProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         inicialProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdChasisRR.addActionListener(new java.awt.event.ActionListener() {
@@ -621,7 +742,7 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdChasisRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, -1));
+        dataRolllsRoyce.add(inicialProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 110, -1));
 
         inicialProdCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdCarroceriasRR.addActionListener(new java.awt.event.ActionListener() {
@@ -629,21 +750,21 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdCarroceriasRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 110, -1));
+        dataRolllsRoyce.add(inicialProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 110, -1));
 
         actProdCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdCarroceriasRR.setText("↑");
-        dataRolllsRoyce.add(actProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
+        dataRolllsRoyce.add(actProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         jLabel42.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setText("Carrocerias");
-        dataRolllsRoyce.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 120, 50));
+        dataRolllsRoyce.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 120, 50));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setText("Ensambladores iniciales ");
-        dataRolllsRoyce.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
+        dataRolllsRoyce.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
 
         inicialEnsamRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialEnsamRR.addActionListener(new java.awt.event.ActionListener() {
@@ -651,15 +772,15 @@ public class Menu extends javax.swing.JFrame {
                 inicialEnsamRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 110, -1));
+        dataRolllsRoyce.add(inicialEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 110, -1));
 
         actEnsamRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actEnsamRR.setText("↑");
-        dataRolllsRoyce.add(actEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
+        dataRolllsRoyce.add(actEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         actTiempoRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actTiempoRR.setText("↑");
-        dataRolllsRoyce.add(actTiempoRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        dataRolllsRoyce.add(actTiempoRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, -1));
 
         inicialTiempoRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialTiempoRR.addActionListener(new java.awt.event.ActionListener() {
@@ -667,16 +788,16 @@ public class Menu extends javax.swing.JFrame {
                 inicialTiempoRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialTiempoRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, 110, -1));
+        dataRolllsRoyce.add(inicialTiempoRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 110, -1));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("Tiempo dias en segundos");
-        dataRolllsRoyce.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        dataRolllsRoyce.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
 
         actProdMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdMotoresRR.setText("↑");
-        dataRolllsRoyce.add(actProdMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
+        dataRolllsRoyce.add(actProdMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, -1, -1));
 
         inicialProdMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdMotoresRR.addActionListener(new java.awt.event.ActionListener() {
@@ -684,12 +805,12 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdMotoresRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialProdMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 110, -1));
+        dataRolllsRoyce.add(inicialProdMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 110, -1));
 
         jLabel45.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Motores");
-        dataRolllsRoyce.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 50));
+        dataRolllsRoyce.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 90, 50));
 
         inicialProdRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdRuedasRR.addActionListener(new java.awt.event.ActionListener() {
@@ -697,16 +818,16 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdRuedasRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 110, -1));
+        dataRolllsRoyce.add(inicialProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, 110, -1));
 
         actProdRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdRuedasRR.setText("↑");
-        dataRolllsRoyce.add(actProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, -1, -1));
+        dataRolllsRoyce.add(actProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, -1, -1));
 
         jLabel46.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(255, 255, 255));
         jLabel46.setText("Ruedas");
-        dataRolllsRoyce.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, 80, 50));
+        dataRolllsRoyce.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 80, 50));
 
         inicialProdAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialProdAccesoriosRR.addActionListener(new java.awt.event.ActionListener() {
@@ -714,21 +835,21 @@ public class Menu extends javax.swing.JFrame {
                 inicialProdAccesoriosRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, 110, -1));
+        dataRolllsRoyce.add(inicialProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 190, 110, -1));
 
         actProdAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actProdAccesoriosRR.setText("↑");
-        dataRolllsRoyce.add(actProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 250, -1, -1));
+        dataRolllsRoyce.add(actProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 190, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
         jLabel47.setText("Accesorios");
-        dataRolllsRoyce.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 190, 110, 50));
+        dataRolllsRoyce.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 130, 110, 50));
 
         jLabel48.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Deadline");
-        dataRolllsRoyce.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 380, -1, -1));
+        dataRolllsRoyce.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 280, -1, -1));
 
         inicialDeadlineRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         inicialDeadlineRR.addActionListener(new java.awt.event.ActionListener() {
@@ -736,14 +857,104 @@ public class Menu extends javax.swing.JFrame {
                 inicialDeadlineRRActionPerformed(evt);
             }
         });
-        dataRolllsRoyce.add(inicialDeadlineRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 460, 110, -1));
+        dataRolllsRoyce.add(inicialDeadlineRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 360, 110, -1));
 
         actDeadlineRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         actDeadlineRR.setText("↑");
-        dataRolllsRoyce.add(actDeadlineRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, -1, -1));
+        dataRolllsRoyce.add(actDeadlineRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
+
+        inicialMaxAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxAccesoriosRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxAccesoriosRRActionPerformed(evt);
+            }
+        });
+        dataRolllsRoyce.add(inicialMaxAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 560, 110, -1));
+
+        jLabel56.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel56.setText("Piezas maximas en almacen");
+        dataRolllsRoyce.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel57.setText("Chasis");
+        dataRolllsRoyce.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 80, 50));
+
+        actMaxChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxChasisRR.setText("↑");
+        dataRolllsRoyce.add(actMaxChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
+
+        inicialMaxChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxChasisRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxChasisRRActionPerformed(evt);
+            }
+        });
+        dataRolllsRoyce.add(inicialMaxChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, 110, -1));
+
+        jLabel58.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel58.setText("Carrocerias");
+        dataRolllsRoyce.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 120, 50));
+
+        actMaxCarroceriaRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxCarroceriaRR.setText("↑");
+        dataRolllsRoyce.add(actMaxCarroceriaRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+
+        inicialMaxCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxCarroceriasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxCarroceriasRRActionPerformed(evt);
+            }
+        });
+        dataRolllsRoyce.add(inicialMaxCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 110, -1));
+
+        jLabel59.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel59.setText("Motores");
+        dataRolllsRoyce.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 500, 90, 50));
+
+        actMaxMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxMotoresRR.setText("↑");
+        dataRolllsRoyce.add(actMaxMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 560, -1, -1));
+
+        inicialMaxMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxMotoresRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxMotoresRRActionPerformed(evt);
+            }
+        });
+        dataRolllsRoyce.add(inicialMaxMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 560, 110, -1));
+
+        jLabel60.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel60.setText("Ruedas");
+        dataRolllsRoyce.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 500, 80, 50));
+
+        actMaxRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxRuedasRR.setText("↑");
+        dataRolllsRoyce.add(actMaxRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 560, -1, -1));
+
+        inicialMaxRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        inicialMaxRuedasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicialMaxRuedasRRActionPerformed(evt);
+            }
+        });
+        dataRolllsRoyce.add(inicialMaxRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, 110, -1));
+
+        actMaxAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        actMaxAccesoriosRR.setText("↑");
+        dataRolllsRoyce.add(actMaxAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 560, -1, -1));
+
+        jLabel61.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel61.setText("Accesorios");
+        dataRolllsRoyce.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 110, 50));
 
         BG_dRR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG RR.png"))); // NOI18N
-        dataRolllsRoyce.add(BG_dRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
+        dataRolllsRoyce.add(BG_dRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1280, 720));
 
         jTabbedPane1.addTab("Data RR", dataRolllsRoyce);
 
@@ -965,15 +1176,6 @@ public class Menu extends javax.swing.JFrame {
         carrosAccRR.setText("-");
         RollsRoyce.add(carrosAccRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 40, 50));
 
-        iniciarRR.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        iniciarRR.setText("Iniciar simulacion");
-        iniciarRR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iniciarRRActionPerformed(evt);
-            }
-        });
-        RollsRoyce.add(iniciarRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
-
         BG_RR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG RR.png"))); // NOI18N
         RollsRoyce.add(BG_RR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -1065,13 +1267,45 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inicialDeadlineRRActionPerformed
 
-    private void iniciarMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarMaseActionPerformed
+    private void inicialMaxChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxChasisMaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_iniciarMaseActionPerformed
+    }//GEN-LAST:event_inicialMaxChasisMaseActionPerformed
 
-    private void iniciarRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarRRActionPerformed
+    private void inicialMaxCarroceriasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxCarroceriasMaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_iniciarRRActionPerformed
+    }//GEN-LAST:event_inicialMaxCarroceriasMaseActionPerformed
+
+    private void inicialMaxMotoresMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxMotoresMaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxMotoresMaseActionPerformed
+
+    private void inicialMaxRuedasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxRuedasMaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxRuedasMaseActionPerformed
+
+    private void inicialMaxAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxAccesoriosMaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxAccesoriosMaseActionPerformed
+
+    private void inicialMaxAccesoriosRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxAccesoriosRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxAccesoriosRRActionPerformed
+
+    private void inicialMaxChasisRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxChasisRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxChasisRRActionPerformed
+
+    private void inicialMaxCarroceriasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxCarroceriasRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxCarroceriasRRActionPerformed
+
+    private void inicialMaxMotoresRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxMotoresRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxMotoresRRActionPerformed
+
+    private void inicialMaxRuedasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialMaxRuedasRRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicialMaxRuedasRRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1129,6 +1363,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton actDeadlineRR;
     private javax.swing.JButton actEnsamMase;
     private javax.swing.JButton actEnsamRR;
+    private javax.swing.JButton actMaxAccesoriosMase;
+    private javax.swing.JButton actMaxAccesoriosRR;
+    private javax.swing.JButton actMaxCarroceriaRR;
+    private javax.swing.JButton actMaxCarroceriasMase;
+    private javax.swing.JButton actMaxChasisMase;
+    private javax.swing.JButton actMaxChasisRR;
+    private javax.swing.JButton actMaxMotoresMase;
+    private javax.swing.JButton actMaxMotoresRR;
+    private javax.swing.JButton actMaxRuedasMase;
+    private javax.swing.JButton actMaxRuedasRR;
     private javax.swing.JButton actProdAccesoriosMase;
     private javax.swing.JButton actProdAccesoriosRR;
     private javax.swing.JButton actProdCarroceriasMase;
@@ -1179,6 +1423,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField inicialDeadlineRR;
     private javax.swing.JTextField inicialEnsamMase;
     private javax.swing.JTextField inicialEnsamRR;
+    private javax.swing.JTextField inicialMaxAccesoriosMase;
+    private javax.swing.JTextField inicialMaxAccesoriosRR;
+    private javax.swing.JTextField inicialMaxCarroceriasMase;
+    private javax.swing.JTextField inicialMaxCarroceriasRR;
+    private javax.swing.JTextField inicialMaxChasisMase;
+    private javax.swing.JTextField inicialMaxChasisRR;
+    private javax.swing.JTextField inicialMaxMotoresMase;
+    private javax.swing.JTextField inicialMaxMotoresRR;
+    private javax.swing.JTextField inicialMaxRuedasMase;
+    private javax.swing.JTextField inicialMaxRuedasRR;
     private javax.swing.JTextField inicialProdAccesoriosMase;
     private javax.swing.JTextField inicialProdAccesoriosRR;
     private javax.swing.JTextField inicialProdCarroceriasMase;
@@ -1191,8 +1445,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField inicialProdRuedasRR;
     private javax.swing.JTextField inicialTiempoMase;
     private javax.swing.JTextField inicialTiempoRR;
-    private javax.swing.JButton iniciarMase;
-    private javax.swing.JButton iniciarRR;
+    private javax.swing.JButton iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1238,7 +1491,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
