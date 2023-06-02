@@ -31,7 +31,10 @@ public class main {
     public static volatile float RRprecioPlus = 900000;
     public static volatile float Mprecio = 350000;
     public static volatile float MprecioPlus = 700000;
-    
+    public static volatile int carnetRober = 8;
+    public static volatile int carnetVito = 8;
+    public static volatile int RRprodMax = 10 + carnetRober;
+    public static volatile int MprodMax = 10 + carnetVito;
     
     //almacen para Rolls Royce
     //la "a" indica que estan en almacen 
@@ -63,8 +66,7 @@ public class main {
     public static volatile int McarrosTotalPlus = 0;
     public static volatile int Mentregas = 0;
     
-    //cantidad producida por dia Rolls Royce
-    public static volatile int carnet;
+    //cantidad producida por dia Rolls Royce    
     public static volatile float RRchasis;
     public static volatile float RRcarrocerias;
     public static volatile float RRmotores;
@@ -468,16 +470,16 @@ public class main {
         grr.start();
         
         //gerente M
-        //Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT, empresaM);
-        //gm.start();
+        Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT, empresaM);
+        gm.start();
         
         //director RR
         Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas, empresaRR);
         drr.start();
         
         //director M
-        //Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas, empresaM);
-        //dm.start();
+        Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas, empresaM);
+        dm.start();
         
         Menu m = new Menu();
     }

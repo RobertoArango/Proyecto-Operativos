@@ -83,7 +83,7 @@ public class Gerente extends Thread {
 
                     this.mutex.acquire();
                     this.diaEntrega--;
-                    System.out.println(diaEntrega);
+                    System.out.println("entraga rr: "+diaEntrega);
                     horasTrabajo = 0;
                     this.mutex.release();
                 }
@@ -136,7 +136,7 @@ public class Gerente extends Thread {
 
                     this.mutex.acquire();
                     this.diaEntrega--;
-                    System.out.println(diaEntrega);
+                    System.out.println("entraga mase: "+diaEntrega);
                     horasTrabajo = 0;
                     this.mutex.release();
                 }

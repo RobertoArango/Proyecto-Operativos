@@ -5,6 +5,7 @@
 package Interfaz;
 
 import Bases.Gerente;
+import Bases.cChasis;
 import Bases.lectorTXT;
 import java.awt.Image;
 import java.util.concurrent.Semaphore;
@@ -105,6 +106,9 @@ public class Menu extends javax.swing.JFrame {
                 float tfinal = (float)main.Datos[0]/70*1000;
                 while (true) {                
                     try {
+                        
+                        //ROLLS ROYCE
+                        
                         RRmutexChasis.acquire();
                             chasisRR.setText(Integer.toString(main.aRRChasis));
                         RRmutexChasis.release();
@@ -134,7 +138,7 @@ public class Menu extends javax.swing.JFrame {
                         RRmutexCarros.acquire();
                             carrosRR.setText(Integer.toString(main.RRcarrosTotal));
                             carrosAccRR.setText(Integer.toString(main.RRcarrosTotalPlus));
-                            entregadosRR.setText(Integer.toString(main.RRcarros));
+                            entregadosRR.setText(Integer.toString(main.RRcarros + main.RRcarrosPlus));
                         RRmutexCarros.release();
                         
                         RRmutexDiasEntrega.acquire();
@@ -185,7 +189,87 @@ public class Menu extends javax.swing.JFrame {
                         main.RRsemSalGerente.release();
                         main.RRsemSalDirector.release();
                         
+                        //MASERATI
                         
+                        MmutexChasis.acquire();
+                            chasisMase.setText(Integer.toString(main.aMChasis));
+                        MmutexChasis.release();
+                        
+                        MmutexCarrocerias.acquire();
+                            carroceriasMase.setText(Integer.toString(main.aMCarrocerias));
+                        MmutexCarrocerias.release();
+                        
+                        MmutexMotores.acquire();
+                            motoresMase.setText(Integer.toString(main.aMMotores));
+                        MmutexMotores.release();
+                        
+                        MmutexRuedas.acquire();
+                            ruedasMase.setText(Integer.toString(main.aMRuedas));
+                        MmutexRuedas.release();
+                        
+                        MmutexAccesorios.acquire();
+                            accesoriosMase.setText(Integer.toString(main.aMAccesorios));
+                        MmutexAccesorios.release();
+                        
+                        prodChasisMase.setText(Integer.toString(main.Datos[20]));
+                        prodCarroceriasMase.setText(Integer.toString(main.Datos[21]));
+                        prodMotoresMase.setText(Integer.toString(main.Datos[22]));
+                        prodRuedasMase.setText(Integer.toString(main.Datos[23]));
+                        prodAccesoriosMase.setText(Integer.toString(main.Datos[24]));
+                        
+                        MmutexCarros.acquire();
+                            carrosMase.setText(Integer.toString(main.McarrosTotal));
+                            carrosAccMase.setText(Integer.toString(main.McarrosTotalPlus));
+                            entregadosMase.setText(Integer.toString(main.Mcarros + main.McarrosPlus));
+                        MmutexCarros.release();
+                        
+                        MmutexDiasEntrega.acquire();
+                            entregaMase.setText(Integer.toString(Gerente.diaEntrega));
+                        MmutexDiasEntrega.release();
+                        
+                        MmutexGerenteT.acquire();
+                            if (main.tMGerente){                          
+                                gerenteMase.setText("Trabajando");
+                            }else{
+                                gerenteMase.setText("Viendo F1");
+                            }
+                        MmutexGerenteT.release();
+                        
+                        MmutexDirectorT.acquire();
+                        if (main.tMDirector){
+                            directorMase.setText("Trabajando");
+                        }else{
+                            directorMase.setText("Vigilando");
+                        }
+                        MmutexDirectorT.release();
+                        
+                        gananciasMTotal = (float) ((main.Mcarros * main.Mprecio)+(main.McarrosPlus * main.MprecioPlus));
+                        
+                        main.MsemSalChasis.acquire();
+                        main.MsemSalCarroceria.acquire();
+                        main.MsemSalMotores.acquire();
+                        main.MsemSalRuedas.acquire();
+                        main.MsemSalAccesorios.acquire();
+                        main.MsemSalEnsamblador.acquire();
+                        main.MsemSalGerente.acquire();
+                        main.MsemSalDirector.acquire();
+                        gananciasMTotal -= (main.MsalChasis + 
+                                main.MsalCarroceria + 
+                                main.MsalMotores + 
+                                main.MsalRuedas + 
+                                main.MsalAccesorios + 
+                                main.MsalEnsamblador + 
+                                main.MsalGerente+ 
+                                main.MsalDirector);
+                        gananciasMase.setText(Float.toString(gananciasMTotal));
+                        main.MsemSalChasis.release();
+                        main.MsemSalCarroceria.release();
+                        main.MsemSalMotores.release();
+                        main.MsemSalRuedas.release();
+                        main.MsemSalAccesorios.release();
+                        main.MsemSalEnsamblador.release();
+                        main.MsemSalGerente.release();
+                        main.MsemSalDirector.release();
                         
                         
                         Thread.sleep((long)tfinal);
@@ -297,7 +381,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         entregaMase = new javax.swing.JLabel();
         entregadosMase = new javax.swing.JLabel();
-        ganaciasMase = new javax.swing.JLabel();
+        gananciasMase = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         carrosAccMase = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -788,6 +872,11 @@ public class Menu extends javax.swing.JFrame {
 
         upProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdChasisMase.setText("↑");
+        upProdChasisMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdChasisMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
         downProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -929,10 +1018,10 @@ public class Menu extends javax.swing.JFrame {
         entregadosMase.setText("-");
         Maserati.add(entregadosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 420, 50, 50));
 
-        ganaciasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
-        ganaciasMase.setForeground(new java.awt.Color(255, 255, 255));
-        ganaciasMase.setText("-");
-        Maserati.add(ganaciasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 280, 50));
+        gananciasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        gananciasMase.setForeground(new java.awt.Color(255, 255, 255));
+        gananciasMase.setText("-");
+        Maserati.add(gananciasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 280, 50));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
@@ -2000,6 +2089,24 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_actDeadlineRRActionPerformed
 
+    private void upProdChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdChasisMaseActionPerformed
+        
+        try{
+            if(main.Datos[20] < main.MprodMax){
+           
+                main.MtProdChasis[McantProdChasis] = new cChasis(main.Mchasis, MmutexChasis, main.MsemProdChasis, main.MsemSalChasis, main.MsemEnsamChasis, main.empresaM);
+                main.MtProdChasis[McantProdChasis].start();
+                main.Datos[20] += 1;
+                main.MprodMax--;
+        }else{
+            JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_upProdChasisMaseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2108,7 +2215,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel entregaRR;
     private javax.swing.JLabel entregadosMase;
     private javax.swing.JLabel entregadosRR;
-    private javax.swing.JLabel ganaciasMase;
+    private javax.swing.JLabel gananciasMase;
     private javax.swing.JLabel gananciasRR;
     private javax.swing.JLabel gerenteMase;
     private javax.swing.JLabel gerenteRR;
