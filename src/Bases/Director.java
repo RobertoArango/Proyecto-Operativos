@@ -18,9 +18,12 @@ public class Director extends Thread {
     Semaphore mutex;
     Semaphore mutexCarros;
     
-    float supervisando;
-    float trabajando;
-    float horasTrabajo;
+    float supervisandoRR;
+    float supervisandoM;
+    float trabajandoRR;
+    float trabajandoM;
+    float horasTrabajoRR;
+    float horasTrabajoM;
     String empresa;
     Semaphore mutexTrabajando;
     Semaphore mutexEntregas;
@@ -30,10 +33,13 @@ public class Director extends Thread {
         this.mutexCarros = mutexCarros;
         this.mutexTrabajando = mutexTrabajando;
         this.mutexEntregas = mutexEntregas;
-        this.horasTrabajo = 0;
+        this.horasTrabajoRR = 0;
+        this.horasTrabajoM = 0;
         this.empresa = empresa;
-        this.trabajando = ((float) ThreadLocalRandom.current().nextInt(0, 24)* main.Datos[0] / 24);
-        this.supervisando = ((float) 25 * main.Datos[0] * 1000 / 1440);
+        this.trabajandoRR = ((float) ThreadLocalRandom.current().nextInt(0, 24)* main.Datos[0] / 24);
+        this.trabajandoM = ((float) ThreadLocalRandom.current().nextInt(0, 24)* main.Datos[0] / 24);
+        this.supervisandoRR = ((float) 25 * main.Datos[0] * 1000 / 1440);
+        this.supervisandoM = ((float) 25 * main.Datos[0] * 1000 / 1440);
     }
     
     @Override
@@ -41,7 +47,7 @@ public class Director extends Thread {
         while (true) {
             try {
                 if ("RR".equals(empresa)) {
-                    Thread.sleep((long) (trabajando * 1000));
+                    Thread.sleep((long) (trabajandoRR * 1000));
 
                     if (Gerente.diaEntrega >= 1) {//No tiene que realizar entregas
                         this.mutex.release();
@@ -75,11 +81,11 @@ public class Director extends Thread {
                         this.mutexTrabajando.acquire();
                         main.tRRDirector = false;
                         this.mutexTrabajando.release();
-                        Thread.sleep((long) (supervisando));
+                        Thread.sleep((long) (supervisandoRR));
                     }
                 }
                 if ("M".equals(empresa)) {
-                    Thread.sleep((long) (trabajando * 1000));
+                    Thread.sleep((long) (trabajandoM * 1000));
 
                     if (Gerente.diaEntrega >= 1) {//No tiene que realizar entregas
                         this.mutex.release();
@@ -113,7 +119,7 @@ public class Director extends Thread {
                         this.mutexTrabajando.acquire();
                         main.tMDirector = false;
                         this.mutexTrabajando.release();
-                        Thread.sleep((long)(supervisando));
+                        Thread.sleep((long)(supervisandoM));
                     }
                 }
             }
