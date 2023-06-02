@@ -29,14 +29,14 @@ public class Gerente extends Thread {
         this.horasTrabajo = 0;
     }
     
-      public void run(){
-        while(true) { 
-            try {
-                while(horasTrabajo <= (float) (main.Datos[0])) {
+      public void run() {
+        try {
+            while (true) {
+                while (horasTrabajo <= (float) (main.Datos[0])) {
                     //System.out.println(diaEntrega);
                     //las primeras 16 horas que varia entre trabajar y ver Formula 1
                     //if (horasDia <= (float) main.Datos[0]/16){
-                    
+
                     //trabajando
                     //System.out.println(horasDia + "trabajo");
                     this.mutexTrabajando.acquire();
@@ -55,17 +55,17 @@ public class Gerente extends Thread {
                     horasTrabajo += (intervaloVT / 1000);
                     horasDia += (intervaloVT / 1000);
                     //}
-                    
+
                     //las 8 horas restantes que solamente trabaja
-                    if (horasDia >= ((float) main.Datos[0])/16){
+                    if (horasDia >= ((float) main.Datos[0]) / 16) {
                         //System.out.println(horasDia + "potente");
-                        
+
                         this.mutexTrabajando.acquire();
                         main.tRRGerente = true;
                         this.mutexTrabajando.release();
-                        Thread.sleep((long)(intervaloVT));
-                        horasTrabajo += (intervaloVT/1000);
-                        horasDia += (intervaloVT/1000);
+                        Thread.sleep((long) (intervaloVT));
+                        horasTrabajo += (intervaloVT / 1000);
+                        horasDia += (intervaloVT / 1000);
                     }
                     //reinicio del día y se le suma el sueldo
                     if (horasDia >= ((float) main.Datos[0]) / 24) {
@@ -77,17 +77,17 @@ public class Gerente extends Thread {
                         horasDia = 0;
                     }
                 }
-                
+
                 this.mutex.acquire();
-                this.diaEntrega--;
-                //System.out.println(diaEntrega);
+                this.diaEntrega --;              
+                System.out.println(diaEntrega);
                 horasTrabajo = 0;
                 this.mutex.release();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "error gerente", "ERROR", JOptionPane.ERROR_MESSAGE);
-                System.exit(1);
+
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error gerente", "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
         }
-           
     }
 }

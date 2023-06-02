@@ -38,7 +38,8 @@ public class Director extends Thread {
     public void run() {
         while (true) {
             try {
-                this.mutex.acquire();
+                Thread.sleep((long) (trabajando * 1000));
+                
                 if (Gerente.diaEntrega >= 1){ //No tiene que realizar entregas
                     this.mutex.release();
                     this.mutexTrabajando.acquire();

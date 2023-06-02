@@ -14,6 +14,7 @@ import Bases.cChasis;
 import Bases.cMotor;
 import Bases.cRuedas;
 import Bases.lectorTXT;
+import Interfaz.Menu;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -458,20 +459,22 @@ public class main {
         }
         
         //gerente RR
-        //Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
-        //grr.start();
+        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
+        grr.start();
         
         //gerente M
         //Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT);
         //gm.start();
         
         //director RR
-        //Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
-        //drr.start();
+        Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
+        drr.start();
         
         //director M
         //Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas);
         //dm.start();
+        
+        Menu m = new Menu();
     }
     
 }

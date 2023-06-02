@@ -23,8 +23,7 @@ Productores RR - Ruedas:
 Productores RR - Accesorios:
 1
 Ensambladores RR:
-1
-Conversion dias/seg Mase:
+1Conversion dias/seg Mase:
 1
 Dia de entrega de vehiculos Mase:
 5
