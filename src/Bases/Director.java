@@ -49,7 +49,7 @@ public class Director extends Thread {
                 if ("RR".equals(empresa)) {
                     Thread.sleep((long) (trabajandoRR * 1000));
 
-                    if (Gerente.diaEntrega >= 1) {//No tiene que realizar entregas
+                    if (Gerente.diaEntregaRR >= 1) {//No tiene que realizar entregas
                         this.mutex.release();
                         this.mutexTrabajando.acquire();
                         //System.out.println("trabajando director");
@@ -64,7 +64,7 @@ public class Director extends Thread {
                         }
                     } else {
                         //System.out.println("entregando");
-                        Gerente.diaEntrega = main.Datos[1];
+                        Gerente.diaEntregaRR = main.Datos[1];
                         this.mutex.release();
                         
                         this.mutexCarros.acquire();
@@ -87,7 +87,7 @@ public class Director extends Thread {
                 if ("M".equals(empresa)) {
                     Thread.sleep((long) (trabajandoM * 1000));
 
-                    if (Gerente.diaEntrega >= 1) {//No tiene que realizar entregas
+                    if (Gerente.diaEntregaM >= 1) {//No tiene que realizar entregas
                         this.mutex.release();
                         this.mutexTrabajando.acquire();
                         //System.out.println("trabajando director");
@@ -102,7 +102,7 @@ public class Director extends Thread {
                         }
                     } else {
                         //System.out.println("entregando");
-                        Gerente.diaEntrega = main.Datos[1];
+                        Gerente.diaEntregaM = main.Datos[14];
                         this.mutex.release();
                         
                         this.mutexCarros.acquire();

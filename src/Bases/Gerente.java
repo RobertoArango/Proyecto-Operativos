@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class Gerente extends Thread {
     
-    public static volatile int diaEntrega;
+    public static volatile int diaEntregaRR;
+    public static volatile int diaEntregaM;
     Semaphore mutex;
     Semaphore mutexTrabajando;
     float intervaloVTRR; //el tiempo que debe pasar para que trabaje/vea Formula 1
@@ -25,8 +26,9 @@ public class Gerente extends Thread {
     float horasDiaM;
     String empresa;
     
-    public Gerente (int diaEntrega, Semaphore mutex, Semaphore mutexTrabajando, String empresa) {
-        this.diaEntrega = diaEntrega;
+    public Gerente (Semaphore mutex, Semaphore mutexTrabajando, String empresa) {
+        this.diaEntregaRR = main.Datos[1];
+        this.diaEntregaM = main.Datos[14];
         this.mutex = mutex;
         this.mutexTrabajando = mutexTrabajando;
         this.intervaloVTRR = ((float) 30*main.Datos[0]*1000/960);//intervalo RollsRoyce
@@ -87,8 +89,8 @@ public class Gerente extends Thread {
                     }
 
                     this.mutex.acquire();
-                    this.diaEntrega--;
-                    System.out.println(diaEntrega);
+                    this.diaEntregaRR--;
+                    System.out.println(diaEntregaRR);
                     horasTrabajoRR = 0;
                     this.mutex.release();
                 }
@@ -140,8 +142,8 @@ public class Gerente extends Thread {
                     }
 
                     this.mutex.acquire();
-                    this.diaEntrega--;
-                    System.out.println(diaEntrega);
+                    this.diaEntregaM--;
+                    System.out.println(diaEntregaM);
                     horasTrabajoM = 0;
                     this.mutex.release();
                 }

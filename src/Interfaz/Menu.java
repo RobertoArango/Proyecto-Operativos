@@ -142,7 +142,7 @@ public class Menu extends javax.swing.JFrame {
                         RRmutexCarros.release();
                         
                         RRmutexDiasEntrega.acquire();
-                            entregaRR.setText(Integer.toString(Gerente.diaEntrega));
+                            entregaRR.setText(Integer.toString(Gerente.diaEntregaRR));
                         RRmutexDiasEntrega.release();
                         
                         RRmutexGerenteT.acquire();
@@ -224,7 +224,7 @@ public class Menu extends javax.swing.JFrame {
                         MmutexCarros.release();
                         
                         MmutexDiasEntrega.acquire();
-                            entregaMase.setText(Integer.toString(Gerente.diaEntrega));
+                            entregaMase.setText(Integer.toString(Gerente.diaEntregaM));
                         MmutexDiasEntrega.release();
                         
                         MmutexGerenteT.acquire();

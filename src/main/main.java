@@ -466,11 +466,11 @@ public class main {
         }
         
         //gerente RR
-        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT, empresaRR);
+        Gerente grr = new Gerente(RRmutexDiasEntrega, RRmutexGerenteT, empresaRR);
         grr.start();
         
         //gerente M
-        Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT, empresaM);
+        Gerente gm = new Gerente(MmutexDiasEntrega, MmutexGerenteT, empresaM);
         gm.start();
         
         //director RR

@@ -72,7 +72,7 @@ public class lectorTXT {
                     + "\nProductores RR - Ruedas:\n" + Integer.toString(main.Datos[10])
                     + "\nProductores RR - Accesorios:\n" + Integer.toString(main.Datos[11])
                     + "\nEnsambladores RR:\n" + Integer.toString(main.Datos[12])
-                    + "Conversion dias/seg Mase:\n" + Integer.toString(main.Datos[13])
+                    + "\nConversion dias/seg Mase:\n" + Integer.toString(main.Datos[13])
                     + "\nDia de entrega de vehiculos Mase:\n" + Integer.toString(main.Datos[14])
                     + "\nCapacidad max en almacen Mase - Chasis:\n" + Integer.toString(main.Datos[15])
                     + "\nCapacidad max en almacen Mase - Carrocerias:\n" + Integer.toString(main.Datos[16])

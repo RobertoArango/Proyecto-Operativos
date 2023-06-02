@@ -89,7 +89,7 @@ public class Ensamblador extends Thread {
         while (activo) {
             try {
                 if ("RR".equals(empresa)){
-                    if (RRcontador == 1) {
+                    if (RRcontador == 6) {
                         estado = (((int) main.RRcantChasis > this.semEnsamChasis.availablePermits())
                                 && (int) main.RRcantCarrocerias > this.semEnsamCarrocerias.availablePermits()
                                 && ((int) main.RRcantMotores > this.semEnsamMotores.availablePermits())
@@ -220,7 +220,7 @@ public class Ensamblador extends Thread {
                     }
                     
                 } if ("M".equals(empresa)) {
-                    if (Mcontador == 1) {
+                    if (Mcontador == 2) {
                         estado = (((int) main.McantChasis > this.semEnsamChasis.availablePermits())
                                 && (int) main.McantCarrocerias > this.semEnsamCarrocerias.availablePermits()
                                 && ((int) main.McantMotores > this.semEnsamMotores.availablePermits())
