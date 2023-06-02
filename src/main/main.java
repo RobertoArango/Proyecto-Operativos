@@ -31,10 +31,8 @@ public class main {
     public static volatile float RRprecioPlus = 900000;
     public static volatile float Mprecio = 350000;
     public static volatile float MprecioPlus = 700000;
-    public static volatile int carnetRober = 8;
-    public static volatile int carnetVito = 8;
-    public static volatile int RRprodMax = 10 + carnetRober;
-    public static volatile int MprodMax = 10 + carnetVito;
+    public static volatile int RRprodMax = 13;
+    public static volatile int MprodMax = 13;
     
     //almacen para Rolls Royce
     //la "a" indica que estan en almacen 

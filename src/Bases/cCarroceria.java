@@ -46,7 +46,7 @@ public class cCarroceria extends Productores {
                 } else {
                     main.MsalCarroceria += ((tProduccion / 1000) * 13);
                     main.aMCarrocerias++;
-                    //System.out.println("Carrocerias M: " + main.aMCarrocerias);
+                    System.out.println("Carrocerias M: " + main.aMCarrocerias);
                 }
                 
                 this.mutex.release();

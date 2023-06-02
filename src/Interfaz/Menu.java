@@ -4,8 +4,13 @@
  */
 package Interfaz;
 
+import Bases.Ensamblador;
 import Bases.Gerente;
+import Bases.cAccesorios;
+import Bases.cCarroceria;
 import Bases.cChasis;
+import Bases.cMotor;
+import Bases.cRuedas;
 import Bases.lectorTXT;
 import java.awt.Image;
 import java.util.concurrent.Semaphore;
@@ -292,9 +297,6 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        Inicio = new javax.swing.JPanel();
-        iniciar = new javax.swing.JButton();
-        jLabel62 = new javax.swing.JLabel();
         dataMaserati = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -485,20 +487,6 @@ public class Menu extends javax.swing.JFrame {
         jTabbedPane1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(1280, 720));
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(1280, 720));
-
-        Inicio.setMaximumSize(new java.awt.Dimension(1280, 720));
-        Inicio.setMinimumSize(new java.awt.Dimension(1280, 720));
-        Inicio.setPreferredSize(new java.awt.Dimension(1280, 720));
-        Inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        iniciar.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        iniciar.setText("Iniciar simulacion");
-        Inicio.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
-
-        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BG RR.png"))); // NOI18N
-        Inicio.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 690));
-
-        jTabbedPane1.addTab("Inicio", Inicio);
 
         dataMaserati.setMaximumSize(new java.awt.Dimension(1280, 720));
         dataMaserati.setMinimumSize(new java.awt.Dimension(1280, 720));
@@ -881,6 +869,11 @@ public class Menu extends javax.swing.JFrame {
 
         downProdChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdChasisMase.setText("↓");
+        downProdChasisMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdChasisMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(downProdChasisMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         prodChasisMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -890,10 +883,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdCarroceriasMase.setText("↑");
+        upProdCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdCarroceriasMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
 
         downProdCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdCarroceriasMase.setText("↓");
+        downProdCarroceriasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdCarroceriasMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(downProdCarroceriasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
 
         prodCarroceriasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -903,6 +906,11 @@ public class Menu extends javax.swing.JFrame {
 
         upProdMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdMotoresMase.setText("↑");
+        upProdMotoresMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdMotoresMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upProdMotoresMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, -1));
 
         downProdMotoresMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -921,10 +929,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdRuedasMase.setText("↑");
+        upProdRuedasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdRuedasMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, -1, -1));
 
         downProdRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdRuedasMase.setText("↓");
+        downProdRuedasMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdRuedasMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(downProdRuedasMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 210, -1, -1));
 
         prodRuedasMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -934,10 +952,20 @@ public class Menu extends javax.swing.JFrame {
 
         downProdAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdAccesoriosMase.setText("↓");
+        downProdAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdAccesoriosMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(downProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 210, -1, -1));
 
         upProdAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdAccesoriosMase.setText("↑");
+        upProdAccesoriosMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdAccesoriosMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upProdAccesoriosMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 170, -1, -1));
 
         prodAccesoriosMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -952,10 +980,20 @@ public class Menu extends javax.swing.JFrame {
 
         upEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upEnsamMase.setText("↑");
+        upEnsamMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upEnsamMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(upEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
 
         downEnsamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downEnsamMase.setText("↓");
+        downEnsamMase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downEnsamMaseActionPerformed(evt);
+            }
+        });
         Maserati.add(downEnsamMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         ensamMase.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1412,10 +1450,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdChasisRR.setText("↑");
+        upProdChasisRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdChasisRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
 
         downProdChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdChasisRR.setText("↓");
+        downProdChasisRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdChasisRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(downProdChasisRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         prodChasisRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1425,10 +1473,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdCarroceriasRR.setText("↑");
+        upProdCarroceriasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdCarroceriasRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
 
         downProdCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdCarroceriasRR.setText("↓");
+        downProdCarroceriasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdCarroceriasRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(downProdCarroceriasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
 
         prodCarroceriasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1438,6 +1496,11 @@ public class Menu extends javax.swing.JFrame {
 
         upProdMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdMotoresRR.setText("↑");
+        upProdMotoresRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdMotoresRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upProdMotoresRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, -1));
 
         downProdMotoresRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1456,10 +1519,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdRuedasRR.setText("↑");
+        upProdRuedasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdRuedasRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 170, -1, -1));
 
         downProdRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdRuedasRR.setText("↓");
+        downProdRuedasRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdRuedasRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(downProdRuedasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 210, -1, -1));
 
         prodRuedasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1469,10 +1542,20 @@ public class Menu extends javax.swing.JFrame {
 
         upProdAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upProdAccesoriosRR.setText("↑");
+        upProdAccesoriosRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upProdAccesoriosRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 170, -1, -1));
 
         downProdAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downProdAccesoriosRR.setText("↓");
+        downProdAccesoriosRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downProdAccesoriosRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(downProdAccesoriosRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 210, -1, -1));
 
         prodAccesoriosRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1487,10 +1570,20 @@ public class Menu extends javax.swing.JFrame {
 
         upEnsamRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         upEnsamRR.setText("↑");
+        upEnsamRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upEnsamRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(upEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
 
         downEnsamRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         downEnsamRR.setText("↓");
+        downEnsamRR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downEnsamRRActionPerformed(evt);
+            }
+        });
         RollsRoyce.add(downEnsamRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         ensamRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
@@ -1588,11 +1681,33 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void downProdMotoresMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdMotoresMaseActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (main.Datos[22] > 1) {
+                main.Datos[22] -= 1;
+                main.MtProdMotor[McantProdMotores].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_downProdMotoresMaseActionPerformed
 
     private void downProdMotoresRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdMotoresRRActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (main.Datos[9] > 1) {
+                main.Datos[9] -= 1;
+                main.RRtProdMotor[RRcantProdMotores].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_downProdMotoresRRActionPerformed
 
     private void inicialProdAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicialProdAccesoriosMaseActionPerformed
@@ -2092,7 +2207,7 @@ public class Menu extends javax.swing.JFrame {
     private void upProdChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdChasisMaseActionPerformed
         
         try{
-            if(main.Datos[20] < main.MprodMax){
+            if(main.MprodMax > 1){
            
                 main.MtProdChasis[McantProdChasis] = new cChasis(main.Mchasis, MmutexChasis, main.MsemProdChasis, main.MsemSalChasis, main.MsemEnsamChasis, main.empresaM);
                 main.MtProdChasis[McantProdChasis].start();
@@ -2106,6 +2221,349 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_upProdChasisMaseActionPerformed
+
+    private void downProdChasisMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdChasisMaseActionPerformed
+        
+        try {
+            if (main.Datos[20] > 1) {
+                main.Datos[20] -= 1;
+                main.MtProdChasis[McantProdChasis].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+       
+    }//GEN-LAST:event_downProdChasisMaseActionPerformed
+
+    private void upProdCarroceriasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdCarroceriasMaseActionPerformed
+        try {
+            if (main.MprodMax > 1) {
+
+                main.MtProdCarroceria[McantProdCarroceria] = new cCarroceria(main.Mcarrocerias, MmutexCarrocerias, main.MsemProdCarroceria, main.MsemSalCarroceria, main.MsemEnsamCarroceria, main.empresaM);
+                main.MtProdCarroceria[McantProdCarroceria].start();
+                main.Datos[21] += 1;
+                main.MprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdCarroceriasMaseActionPerformed
+
+    private void downProdCarroceriasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdCarroceriasMaseActionPerformed
+        
+        try {
+            if (main.Datos[21] > 1) {
+                main.Datos[21] -= 1;
+                main.MtProdCarroceria[McantProdCarroceria].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_downProdCarroceriasMaseActionPerformed
+
+    private void upProdMotoresMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdMotoresMaseActionPerformed
+        
+        try {
+            if (main.MprodMax > 1) {
+
+                main.MtProdMotor[McantProdMotores] = new cMotor(main.Mmotores, MmutexMotores, main.MsemProdMotores, main.MsemSalMotores, main.MsemEnsamMotores, main.empresaM);
+                main.MtProdMotor[McantProdMotores].start();
+                main.Datos[22] += 1;
+                main.MprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdMotoresMaseActionPerformed
+
+    private void upProdRuedasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdRuedasMaseActionPerformed
+        
+        try {
+            if (main.MprodMax > 1) {
+
+                main.MtProdRuedas[McantProdRuedas] = new cRuedas(main.Mruedas, MmutexRuedas, main.MsemProdRuedas, main.MsemSalRuedas, main.MsemEnsamRuedas, main.empresaM);
+                main.MtProdRuedas[McantProdRuedas].start();
+                main.Datos[23] += 1;
+                main.MprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_upProdRuedasMaseActionPerformed
+
+    private void downProdRuedasMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdRuedasMaseActionPerformed
+        
+        try {
+            if (main.Datos[23] > 1) {
+                main.Datos[23] -= 1;
+                main.MtProdRuedas[McantProdRuedas].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_downProdRuedasMaseActionPerformed
+
+    private void upProdAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdAccesoriosMaseActionPerformed
+        
+        try {
+            if (main.MprodMax > 1) {
+
+                main.MtProdAccesorios[McantProdAccesorios] = new cAccesorios(main.Maccesorios, MmutexAccesorios, main.MsemProdAccesorios, main.MsemSalAccesorios, main.MsemEnsamAccesorios, main.empresaM);
+                main.MtProdAccesorios[McantProdAccesorios].start();
+                main.Datos[24] += 1;
+                main.MprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_upProdAccesoriosMaseActionPerformed
+
+    private void downProdAccesoriosMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdAccesoriosMaseActionPerformed
+        
+        try {
+            if (main.Datos[24] > 1) {
+                main.Datos[24] -= 1;
+                main.MtProdAccesorios[McantProdAccesorios].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+      
+    }//GEN-LAST:event_downProdAccesoriosMaseActionPerformed
+
+    private void upEnsamMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upEnsamMaseActionPerformed
+        
+        try {
+            if (main.MprodMax > 1) {
+
+                main.MtProdEnsamblador[McantProdEnsamblador] = new Ensamblador(main.MmutexChasis, MmutexCarrocerias, main.MmutexMotores, main.MmutexRuedas, main.MmutexAccesorios, main.MmutexCarros, main.MsemEnsamChasis, main.MsemEnsamCarroceria, main.MsemEnsamMotores, main.MsemEnsamRuedas, main.MsemEnsamAccesorios, main.MsemProdChasis, main.MsemProdCarroceria, main.MsemProdMotores, main.MsemProdRuedas, main.MsemProdAccesorios, main.empresaM);
+                main.MtProdEnsamblador[McantProdEnsamblador].start();
+                main.Datos[25] += 1;
+                main.MprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_upEnsamMaseActionPerformed
+
+    private void downEnsamMaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downEnsamMaseActionPerformed
+        
+        try {
+            if (main.Datos[25] > 1) {
+                main.Datos[25] -= 1;
+                main.MtProdEnsamblador[McantProdEnsamblador].setActivo(false);
+                main.MprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_downEnsamMaseActionPerformed
+
+    private void upProdChasisRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdChasisRRActionPerformed
+        try{
+            if(main.RRprodMax > 1){
+           
+                main.RRtProdChasis[RRcantProdChasis] = new cChasis(main.RRchasis, RRmutexChasis, main.RRsemProdChasis, main.RRsemSalChasis, main.RRsemEnsamChasis, main.empresaRR);
+                main.RRtProdChasis[RRcantProdChasis].start();
+                main.Datos[7] += 1;
+                main.RRprodMax--;
+        }else{
+            JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdChasisRRActionPerformed
+
+    private void downProdChasisRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdChasisRRActionPerformed
+        try {
+            if (main.Datos[7] > 1) {
+                main.Datos[7] -= 1;
+                main.RRtProdChasis[RRcantProdChasis].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_downProdChasisRRActionPerformed
+
+    private void upProdCarroceriasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdCarroceriasRRActionPerformed
+        try {
+            if (main.RRprodMax > 1) {
+
+                main.RRtProdCarroceria[RRcantProdCarroceria] = new cCarroceria(main.RRcarrocerias, RRmutexCarrocerias, main.RRsemProdCarroceria, main.RRsemSalCarroceria, main.RRsemEnsamCarroceria, main.empresaRR);
+                main.RRtProdCarroceria[RRcantProdCarroceria].start();
+                main.Datos[8] += 1;
+                main.RRprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdCarroceriasRRActionPerformed
+
+    private void downProdCarroceriasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdCarroceriasRRActionPerformed
+        try {
+            if (main.Datos[8] > 1) {
+                main.Datos[8] -= 1;
+                main.RRtProdCarroceria[RRcantProdCarroceria].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_downProdCarroceriasRRActionPerformed
+
+    private void upProdMotoresRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdMotoresRRActionPerformed
+        try {
+            if (main.RRprodMax > 1) {
+
+                main.RRtProdMotor[RRcantProdMotores] = new cMotor(main.RRmotores, RRmutexMotores, main.RRsemProdMotores, main.RRsemSalMotores, main.RRsemEnsamMotores, main.empresaRR);
+                main.RRtProdMotor[RRcantProdMotores].start();
+                main.Datos[9] += 1;
+                main.RRprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdMotoresRRActionPerformed
+
+    private void upProdRuedasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdRuedasRRActionPerformed
+        try {
+            if (main.RRprodMax > 1) {
+
+                main.RRtProdRuedas[RRcantProdRuedas] = new cRuedas(main.RRruedas, RRmutexRuedas, main.RRsemProdRuedas, main.RRsemSalRuedas, main.RRsemEnsamRuedas, main.empresaRR);
+                main.RRtProdRuedas[RRcantProdRuedas].start();
+                main.Datos[10] += 1;
+                main.RRprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdRuedasRRActionPerformed
+
+    private void downProdRuedasRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdRuedasRRActionPerformed
+        try {
+            if (main.Datos[10] > 1) {
+                main.Datos[10] -= 1;
+                main.RRtProdRuedas[RRcantProdRuedas].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_downProdRuedasRRActionPerformed
+
+    private void upProdAccesoriosRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upProdAccesoriosRRActionPerformed
+        try {
+            if (main.RRprodMax > 1) {
+
+                main.RRtProdAccesorios[RRcantProdAccesorios] = new cAccesorios(main.RRaccesorios, RRmutexAccesorios, main.RRsemProdAccesorios, main.RRsemSalAccesorios, main.RRsemEnsamAccesorios, main.empresaRR);
+                main.RRtProdAccesorios[RRcantProdAccesorios].start();
+                main.Datos[11] += 1;
+                main.RRprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upProdAccesoriosRRActionPerformed
+
+    private void downProdAccesoriosRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downProdAccesoriosRRActionPerformed
+        try {
+            if (main.Datos[11] > 1) {
+                main.Datos[11] -= 1;
+                main.RRtProdAccesorios[RRcantProdAccesorios].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_downProdAccesoriosRRActionPerformed
+
+    private void upEnsamRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upEnsamRRActionPerformed
+        try {
+            if (main.RRprodMax > 1) {
+
+                main.RRtProdEnsamblador[RRcantProdEnsamblador] = new Ensamblador(main.RRmutexChasis, RRmutexCarrocerias, main.RRmutexMotores, main.RRmutexRuedas, main.RRmutexAccesorios, main.RRmutexCarros, main.RRsemEnsamChasis, main.RRsemEnsamCarroceria, main.RRsemEnsamMotores, main.RRsemEnsamRuedas, main.RRsemEnsamAccesorios, main.RRsemProdChasis, main.RRsemProdCarroceria, main.RRsemProdMotores, main.RRsemProdRuedas, main.RRsemProdAccesorios, main.empresaRR);
+                main.RRtProdEnsamblador[RRcantProdEnsamblador].start();
+                main.Datos[12] += 1;
+                main.RRprodMax--;
+            } else {
+                JOptionPane.showMessageDialog(null, "Numero máximo de productores alcanzado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_upEnsamRRActionPerformed
+
+    private void downEnsamRRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downEnsamRRActionPerformed
+        try {
+            if (main.Datos[12] > 1) {
+                main.Datos[12] -= 1;
+                main.RRtProdEnsamblador[RRcantProdEnsamblador].setActivo(false);
+                main.RRprodMax++;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede despedir mas produtores.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_downEnsamRRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2154,7 +2612,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel BG_RR;
     private javax.swing.JLabel BG_dMase;
     private javax.swing.JLabel BG_dRR;
-    private javax.swing.JPanel Inicio;
     private javax.swing.JPanel Maserati;
     private javax.swing.JPanel RollsRoyce;
     private javax.swing.JLabel accesoriosMase;
@@ -2245,7 +2702,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField inicialProdRuedasRR;
     private javax.swing.JTextField inicialTiempoMase;
     private javax.swing.JTextField inicialTiempoRR;
-    private javax.swing.JButton iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2304,7 +2760,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
