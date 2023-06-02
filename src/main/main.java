@@ -459,19 +459,19 @@ public class main {
         }
         
         //gerente RR
-        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT);
+        Gerente grr = new Gerente(Datos[1], RRmutexDiasEntrega, RRmutexGerenteT, empresaRR);
         grr.start();
         
         //gerente M
-        //Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT);
+        //Gerente gm = new Gerente(Datos[14], MmutexDiasEntrega, MmutexGerenteT, empresaM);
         //gm.start();
         
         //director RR
-        Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas);
+        Director drr = new Director(RRmutexDiasEntrega, RRmutexCarros, RRmutexDirectorT, RRmutexEntregas, empresaRR);
         drr.start();
         
         //director M
-        //Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas);
+        //Director dm = new Director(MmutexDiasEntrega, MmutexCarros, MmutexDirectorT, MmutexEntregas, empresaM);
         //dm.start();
         
         Menu m = new Menu();
