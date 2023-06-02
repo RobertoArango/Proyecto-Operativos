@@ -27,6 +27,11 @@ public class main {
     public static int[] Datos;
     public static String empresaRR = "RR";
     public static String empresaM = "M";
+    public static volatile float RRprecio = 450000;
+    public static volatile float RRprecioPlus = 900000;
+    public static volatile float Mprecio = 350000;
+    public static volatile float MprecioPlus = 700000;
+    
     
     //almacen para Rolls Royce
     //la "a" indica que estan en almacen 
@@ -39,6 +44,7 @@ public class main {
     public static volatile boolean tRRDirector = true;
     public static volatile int RRcarros = 0;
     public static volatile int RRcarrosTotal = 0;
+    public static volatile int RRcarrosPlus = 0;
     public static volatile int RRcarrosTotalPlus = 0;
     public static volatile int RRentregas = 0;
     
@@ -53,6 +59,7 @@ public class main {
     public static volatile boolean tMDirector = true;
     public static volatile int Mcarros = 0;
     public static volatile int McarrosTotal = 0;
+    public static volatile int McarrosPlus = 0;
     public static volatile int McarrosTotalPlus = 0;
     public static volatile int Mentregas = 0;
     
@@ -77,7 +84,6 @@ public class main {
     public static volatile float RRcantMotores;
     public static volatile float RRcantRuedas;
     public static volatile float RRcantAccesorios;
-    public static volatile float RRprecio;
     public static volatile float RRmaximoProducto;
     
     //cantidad de piezas necesaria para fabricar el carro Maserati
@@ -86,7 +92,6 @@ public class main {
     public static volatile float McantMotores;
     public static volatile float McantRuedas;
     public static volatile float McantAccesorios;
-    public static volatile float Mprecio;
     public static volatile float MmaximoProducto;
     
     //semaforos

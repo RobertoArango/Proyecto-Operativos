@@ -62,7 +62,8 @@ public class Menu extends javax.swing.JFrame {
     int McantProdAccesorios;
     int RRcantProdEnsamblador;
     int McantProdEnsamblador;
-    float ganancias;
+    float gananciasRRTotal;
+    float gananciasMTotal;
         
     public Menu() {
         initComponents();
@@ -148,8 +149,41 @@ public class Menu extends javax.swing.JFrame {
                             }
                         RRmutexGerenteT.release();
                         
+                        RRmutexDirectorT.acquire();
+                        if (main.tRRDirector){
+                            directorRR.setText("Trabajando");
+                        }else{
+                            directorRR.setText("Vigilando");
+                        }
+                        RRmutexDirectorT.release();
                         
+                        gananciasRRTotal = (float) ((main.RRcarros * main.RRprecio)+(main.RRcarrosPlus * main.RRprecioPlus));
                         
+                        main.RRsemSalChasis.acquire();
+                        main.RRsemSalCarroceria.acquire();
+                        main.RRsemSalMotores.acquire();
+                        main.RRsemSalRuedas.acquire();
+                        main.RRsemSalAccesorios.acquire();
+                        main.RRsemSalEnsamblador.acquire();
+                        main.RRsemSalGerente.acquire();
+                        main.RRsemSalDirector.acquire();
+                        gananciasRRTotal -= (main.RRsalChasis + 
+                                main.RRsalCarroceria + 
+                                main.RRsalMotores + 
+                                main.RRsalRuedas + 
+                                main.RRsalAccesorios + 
+                                main.RRsalEnsamblador + 
+                                main.RRsalGerente+ 
+                                main.RRsalDirector);
+                        gananciasRR.setText(Float.toString(gananciasRRTotal));
+                        main.RRsemSalChasis.release();
+                        main.RRsemSalCarroceria.release();
+                        main.RRsemSalMotores.release();
+                        main.RRsemSalRuedas.release();
+                        main.RRsemSalAccesorios.release();
+                        main.RRsemSalEnsamblador.release();
+                        main.RRsemSalGerente.release();
+                        main.RRsemSalDirector.release();
                         
                         
                         
@@ -354,7 +388,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         directorRR = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        ganaciasRR = new javax.swing.JLabel();
+        gananciasRR = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         carrosAccRR = new javax.swing.JLabel();
         BG_RR = new javax.swing.JLabel();
@@ -1430,10 +1464,10 @@ public class Menu extends javax.swing.JFrame {
         jLabel26.setText("Ganancias/Perdidas");
         RollsRoyce.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, 200, 50));
 
-        ganaciasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
-        ganaciasRR.setForeground(new java.awt.Color(255, 255, 255));
-        ganaciasRR.setText("-");
-        RollsRoyce.add(ganaciasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 280, 50));
+        gananciasRR.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        gananciasRR.setForeground(new java.awt.Color(255, 255, 255));
+        gananciasRR.setText("-");
+        RollsRoyce.add(gananciasRR, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 280, 50));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
@@ -2075,7 +2109,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel entregadosMase;
     private javax.swing.JLabel entregadosRR;
     private javax.swing.JLabel ganaciasMase;
-    private javax.swing.JLabel ganaciasRR;
+    private javax.swing.JLabel gananciasRR;
     private javax.swing.JLabel gerenteMase;
     private javax.swing.JLabel gerenteRR;
     private javax.swing.JTextField inicialDeadlineMase;

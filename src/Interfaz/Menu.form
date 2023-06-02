@@ -2860,7 +2860,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="ganaciasRR">
+            <Component class="javax.swing.JLabel" name="gananciasRR">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Black" size="20" style="0"/>
